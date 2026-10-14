@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "revivetoday-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "serve@14", "-l", "8787", "--no-clipboard", "/Users/gd/Documents/GitHub/revivetodayws"],
+      "port": 8787
+    }
+  ]
+}

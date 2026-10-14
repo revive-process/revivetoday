@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (local dev server only; the site has no dependencies)
+node_modules/
+npm-debug.log*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Cloudflare Wrangler
+.wrangler/
+.dev.vars
