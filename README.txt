@@ -7,7 +7,7 @@ Pages
   banking.html                  Execution Intelligence for Banking, with its sub-pages:
     banking-community-banks.html, banking-regional-banks.html, banking-large-banks.html
   workflows.html                Banking workflows
-  proof.html                    Banking engagements, with full case studies:
+  success-stories.html          Success stories (banking engagements), with full case studies:
     case-customer-onboarding.html, case-payment-investigations.html (+ docs/*.pdf)
   platform.html                 Platform, modules (platform-optim/comply/genie/insights.html)
     platform-deployment.html    Deployment, security and data handling
