@@ -5,12 +5,16 @@
  * `run_worker_first` in wrangler.json routes every request through here so
  * that these URL rules apply to static pages too:
  *
- *   1. HTTPS: plain-http requests permanently redirect to https.
- *   2. Canonical host: www.revivetoday.com redirects to revivetoday.com.
- *   3. Canonical path: a trailing slash is dropped (/platform/ -> /platform)
+ *   1. Canonical host: www.revivetoday.com redirects to revivetoday.com.
+ *   2. Canonical path: a trailing slash is dropped (/platform/ -> /platform)
  *      and a .html suffix is dropped (/platform.html -> /platform), matching
  *      `trailingSlash: "never"` and `build.format: "file"` in astro.config.mjs.
- *   4. Retired pages 301 to their replacements (RETIRED_PATHS).
+ *   3. Retired pages 301 to their replacements (RETIRED_PATHS).
+ *
+ * http -> https is left to Cloudflare's zone setting "Always Use HTTPS"
+ * (TLS terminates at the edge before the Worker runs); the HSTS header below
+ * pins repeat visitors to https. Doing it here would loop under `wrangler
+ * dev`, which presents requests under the route host over plain http.
  *
  * Security headers are added to every response on the way out
  * (public/_headers carries the same set for assets served without the Worker).
@@ -19,9 +23,6 @@ import { handle } from "@astrojs/cloudflare/handler";
 
 const PRIMARY_HOST = "revivetoday.com";
 const SECONDARY_HOSTS = new Set(["www.revivetoday.com"]);
-
-// Local dev and preview run over plain http; never upgrade those.
-const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1", "[::1]"]);
 
 // Retired pages and where their visitors now go (permanent redirects).
 const RETIRED_PATHS = {
@@ -37,10 +38,6 @@ const SECURITY_HEADERS = {
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
 };
-
-function isLocal(url) {
-  return LOCAL_HOSTS.has(url.hostname) || url.hostname.endsWith(".localhost");
-}
 
 function withSecurityHeaders(response) {
   const headers = new Headers(response.headers);
@@ -58,16 +55,8 @@ function canonicalUrl(request) {
   const url = new URL(request.url);
   let changed = false;
 
-  if (url.protocol === "http:" && !isLocal(url)) {
-    url.protocol = "https:";
-    url.port = "";
-    changed = true;
-  }
-
   if (SECONDARY_HOSTS.has(url.hostname)) {
-    url.protocol = "https:";
     url.hostname = PRIMARY_HOST;
-    url.port = "";
     changed = true;
   }
 
@@ -93,17 +82,12 @@ function canonicalUrl(request) {
 export default {
   async fetch(request, env, ctx) {
     const method = request.method.toUpperCase();
-    const url = new URL(request.url);
 
     if (method === "GET" || method === "HEAD") {
       const target = canonicalUrl(request);
       if (target) {
         return withSecurityHeaders(Response.redirect(target.toString(), 301));
       }
-    } else if (url.protocol === "http:" && !isLocal(url)) {
-      url.protocol = "https:";
-      url.port = "";
-      return withSecurityHeaders(Response.redirect(url.toString(), 308));
     }
 
     return withSecurityHeaders(await handle(request, env, ctx));
