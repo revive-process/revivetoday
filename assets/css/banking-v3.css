@@ -1,0 +1,25 @@
+/* V3: refinements based on established community/regional/global design language */
+:root{--bank-purple:#5941c6;--bank-lavender:#cbbaff;--bank-blue:#2876ad;--bank-teal:#217c74}
+.rt-brand img{height:calc(46px * 1.2)!important;max-height:62px!important;width:auto!important}
+.rt-nav a.active,.rt-nav .rt-parent.active{color:#4c35b3!important;font-weight:800!important;border-bottom:3px solid #6c51c7}
+.rt-nav .rt-sub a.active{background:#eee9fc!important;color:#4b32a9!important;font-weight:800!important;border-left:3px solid #6c51c7}
+.rt-nav .rt-item:has(.rt-sub a.active)>.rt-parent{color:#4c35b3!important;font-weight:800!important;border-bottom:3px solid #6c51c7}
+/* Dark-background lavender; restore deep purple on light backgrounds */
+.band:not(.band-navy) .kicker,.band-paper .kicker,.section:not(.dark) .eyebrow,.ei-validation .kicker,.ei-eyebrow{color:#5941c6!important}
+.hero .kicker,.ei-hero .kicker,.band-navy .kicker,.band-navy .ei-eyebrow,.ei-close .ei-eyebrow{color:#cbbaff!important}
+.hero .lead,.ei-hero .lead{color:#edf2fc!important;opacity:1!important}
+.hero h1,.ei-hero h1{color:#fff!important}
+/* Visual variety without replacing existing section treatments */
+.band:not(.band-navy):not(.band-paper) .head h2::after,.section:not(.dark) .section-head h2::after{content:'';display:block;width:72px;height:4px;border-radius:6px;background:linear-gradient(90deg,#257d78,#6b50c7);margin-top:15px}
+.band-paper .head h2::after{background:linear-gradient(90deg,#3779b4,#7454c9)}
+.ei-card,.card{border-top:3px solid transparent;border-image:linear-gradient(90deg,#2a8a82,#6d53c8) 1}
+.ei-validation-grid>div:nth-child(3n+1),.grid-6 .card:nth-child(3n+1){background:#f1faf6}
+.ei-validation-grid>div:nth-child(3n+2),.grid-6 .card:nth-child(3n+2){background:#f1f6fc}
+.ei-validation-grid>div:nth-child(3n),.grid-6 .card:nth-child(3n){background:#f7f3fd}
+/* Hero artwork should not crop; hero copy should be compact and readable */
+.hero figure,.ei-hero figure{margin:0;min-width:0}
+.hero figure img,.ei-hero figure img{object-fit:contain!important;max-height:530px!important}
+.hero>.shell,.hero .shell,.ei-split{grid-template-columns:minmax(0,.9fr) minmax(0,1.35fr)!important}
+.hero .lead,.ei-hero .lead{font-weight:400!important}
+/* Legacy banking segment pages: preserve all established content layouts */
+@media(max-width:850px){.hero>.shell,.hero .shell,.ei-split{grid-template-columns:1fr!important}.rt-brand img{height:49px!important}}

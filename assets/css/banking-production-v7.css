@@ -1,0 +1,26 @@
+/* V7 production mobile and accessibility finishing layer */
+html{scroll-padding-top:88px}body{overflow-x:clip}img,video{max-width:100%;height:auto}svg{max-width:100%}
+:focus-visible{outline:3px solid #16877e!important;outline-offset:3px!important}
+@media(max-width:900px){
+ .rt-header{position:sticky;top:0;z-index:999}
+ .rt-nav.open{max-height:calc(100dvh - 70px);overflow-y:auto;overscroll-behavior:contain}
+ .rt-nav .rt-sub{max-width:100%}
+ .rt-nav a{white-space:normal!important}
+ main h1{overflow-wrap:break-word}
+ main .wrap,main .container{max-width:100%}
+ main .grid,main .hero-grid,main .hero-layout{min-width:0}
+}
+@media(max-width:680px){
+ body.v6-ei main .hero h1{font-size:clamp(2.65rem,10vw,4rem)!important;max-width:100%!important}
+ body.v6-ei main .hero-grid{grid-template-columns:minmax(0,1fr)!important}
+ body.v6-ei main .hero-ei-visual{overflow:hidden}
+ body.v6-ei main .hero-have-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ body.v6-refined main .v6-diagram{padding:16px!important;margin:1.4rem 0!important}
+ body.v6-refined main .v6-diagram .v6-card{padding:16px!important}
+ body.v6-refined main .v6-diagram .v6-flow{grid-template-columns:minmax(0,1fr)!important}
+ body.v6-refined main .v6-diagram .v6-approach{grid-template-columns:minmax(0,1fr)!important}
+ body.v6-refined main .v6-diagram .v6-core{padding:18px!important}
+ body.v6-refined main .v6-diagram .v6-label{font-size:1.04rem!important}
+ .rt-brand img{max-width:130px!important;height:auto!important}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}

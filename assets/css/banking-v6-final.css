@@ -1,0 +1,73 @@
+
+/* Banking-first V6: editorial typography and legible architecture diagrams */
+body.v6-refined { font-family:Aptos,"Segoe UI",Arial,sans-serif; }
+body.v6-refined main .mark,body.v6-refined main .eyebrow {
+  font-family:inherit!important;font-size:clamp(.86rem,1vw,1.03rem)!important;
+  font-weight:850!important;letter-spacing:.11em!important;line-height:1.4!important;
+  text-transform:uppercase!important;
+}
+body.v6-refined main h1 {font-family:inherit!important;letter-spacing:-.045em!important;line-height:1.09!important}
+body.v6-refined main h2 {font-family:inherit!important;letter-spacing:-.035em!important;line-height:1.17!important}
+body.v6-refined main .standfirst,body.v6-refined main .lede {font-size:clamp(1.1rem,1.35vw,1.3rem)!important;line-height:1.65!important}
+body.v6-refined main figure.dgm{border-radius:22px!important;box-shadow:0 18px 48px #132b4b10!important;border:1px solid #dbe5f0!important;overflow:hidden}
+body.v6-refined main figure.dgm figcaption{font-size:clamp(.96rem,1.04vw,1.12rem)!important;line-height:1.6!important;padding:1rem 1.5rem!important}
+body.v6-refined main figure.dgm svg text{font-family:Aptos,"Segoe UI",Arial,sans-serif!important}
+body.v6-refined main .figures b{font-size:clamp(1.08rem,1.2vw,1.35rem)!important;line-height:1.3!important}
+body.v6-refined main .figures span{font-size:clamp(.95rem,1vw,1.08rem)!important;line-height:1.45!important}
+body.v6-refined main .v6-diagram {padding:clamp(22px,3vw,38px);background:linear-gradient(135deg,#fff,#f8f9ff);border:1px solid #dce4f0;border-radius:22px;box-shadow:0 16px 45px #132b4b0b;margin:2rem 0}
+body.v6-refined main .v6-diagram .v6-label{font-size:clamp(.95rem,1.15vw,1.18rem);font-weight:850;color:#3c338c;letter-spacing:.065em;text-transform:uppercase;margin:0 0 1.15rem}
+body.v6-refined main .v6-diagram .v6-card{border:1px solid #d7dfec;background:white;border-radius:14px;padding:clamp(16px,1.6vw,23px);min-width:0}
+body.v6-refined main .v6-diagram .v6-card strong{display:block;color:#172e4a;font-size:clamp(1.07rem,1.35vw,1.38rem);line-height:1.25;margin-bottom:.55rem}
+body.v6-refined main .v6-diagram .v6-card p{color:#53657a;font-size:clamp(.94rem,1.04vw,1.08rem);line-height:1.45;margin:0}
+body.v6-refined main .v6-diagram .v6-note{font-size:clamp(.95rem,1vw,1.06rem);color:#52667b;line-height:1.55;margin:1rem 0 0}
+body.v6-refined main .v6-diagram .v6-arrow{color:#5545b3;font-size:1.65rem;text-align:center;font-weight:800;align-self:center}
+body.v6-refined main .v6-diagram .v6-flow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;align-items:stretch}
+body.v6-refined main .v6-diagram .v6-flow .v6-card{padding:14px 12px;border-top:4px solid #c7c0ed}
+body.v6-refined main .v6-diagram .v6-flow .v6-card strong{font-size:clamp(.95rem,1.02vw,1.13rem)}
+body.v6-refined main .v6-diagram .v6-flow .v6-card p{font-size:clamp(.84rem,.9vw,.97rem)}
+body.v6-refined main .v6-diagram .v6-flow .v6-card:not(:last-child){position:relative}
+body.v6-refined main .v6-diagram .v6-flow .v6-card:not(:last-child):after{content:"→";position:absolute;right:-12px;top:43%;z-index:1;color:#5545b3;font-size:1.2rem;font-weight:800}
+body.v6-refined main .v6-diagram .v6-approach{display:grid;grid-template-columns:1fr auto 2.2fr auto 1.12fr;gap:14px;align-items:center}
+body.v6-refined main .v6-diagram .v6-core{background:#f0effb;border:2px solid #6754c4;border-radius:16px;padding:23px}
+body.v6-refined main .v6-diagram .v6-core strong{display:block;font-size:clamp(1.15rem,1.5vw,1.55rem);color:#23245b}
+body.v6-refined main .v6-diagram .v6-core p{margin:.3rem 0;color:#52657c;font-size:clamp(.96rem,1vw,1.1rem)}
+body.v6-refined main .v6-diagram .v6-core hr{border:0;border-top:1px solid #d4cdef;margin:16px 0}
+body.v6-refined main .v6-diagram .v6-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+body.v6-refined main .v6-diagram .v6-products .v6-card{border-left:4px solid #6654bf}
+body.v6-refined main .v6-diagram .v6-products .v6-card strong{font-size:clamp(1.03rem,1.25vw,1.3rem)}
+body.v6-refined main .v6-diagram .v6-products .v6-card p{font-size:clamp(.9rem,.96vw,1rem)}
+body.v6-refined main .v6-diagram .v6-deploy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+body.v6-refined main .v6-diagram .v6-deploy .v6-card{border-top:5px solid #6352bc}
+body.v6-refined main .v6-diagram .v6-deploy .v6-card p{margin-top:12px}
+body.v6-refined main .v6-diagram .v6-stack{display:grid;gap:9px;margin-top:14px}
+body.v6-refined main .v6-diagram .v6-stack span{padding:12px;background:#f1f3fb;border-radius:8px;color:#253b59;font-size:clamp(.98rem,1.07vw,1.14rem);font-weight:700}
+body.v6-refined main .v6-diagram .v6-access{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:15px;align-items:stretch}
+body.v6-refined main .v6-diagram .v6-access .v6-card{border-top:4px solid #167f79}
+body.v6-refined main .v6-diagram .v6-access .v6-card:last-child{background:#eff6f7}
+body.v6-refined main .v6-diagram .v6-overline{font-size:.9rem;color:#5744a4;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin:0 0 9px}
+body.v6-refined main .v6-diagram .v6-source-list{display:grid;gap:10px}
+body.v6-refined main .v6-diagram .v6-source-list span{display:block;font-size:clamp(1rem,1.1vw,1.15rem);font-weight:750;color:#193653}
+body.v6-refined main .v6-diagram .v6-source-list small{display:block;color:#617187;font-size:.93rem;font-weight:400}
+body.v6-ei main .hero {background:linear-gradient(115deg,#f2f6fb 0%,#fff 52%,#f4f0fb 100%)!important;min-height:0!important;padding:clamp(68px,7vw,112px) 0!important}
+body.v6-ei main .hero-grid{display:grid!important;grid-template-columns:minmax(320px,.8fr) minmax(0,1.2fr)!important;gap:clamp(28px,4vw,76px)!important;align-items:center!important}
+body.v6-ei main .hero h1{color:#162f50!important;max-width:12ch!important;font-size:clamp(3.15rem,4.6vw,5.3rem)!important;line-height:1.07!important;text-shadow:none!important;opacity:1!important}
+body.v6-ei main .hero .eyebrow{color:#5948b2!important;opacity:1!important}
+body.v6-ei main .hero .definition{color:#3f536b!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;font-size:clamp(1.18rem,1.4vw,1.48rem)!important;line-height:1.55!important;opacity:1!important}
+body.v6-ei main .hero-ei-visual{width:100%;min-width:0;max-width:100%;background:#fff!important}
+body.v6-ei main .hero-have-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+@media(max-width:1100px){
+body.v6-refined main .v6-diagram .v6-flow{grid-template-columns:repeat(4,minmax(0,1fr))}
+body.v6-refined main .v6-diagram .v6-flow .v6-card:after{display:none}
+body.v6-refined main .v6-diagram .v6-approach{grid-template-columns:1fr;gap:9px}
+body.v6-refined main .v6-diagram .v6-arrow{transform:rotate(90deg)}
+body.v6-ei main .hero-grid{grid-template-columns:1fr!important}
+body.v6-ei main .hero h1{max-width:17ch!important}
+}
+@media(max-width:680px){
+body.v6-refined main .v6-diagram .v6-flow,body.v6-refined main .v6-diagram .v6-products,body.v6-refined main .v6-diagram .v6-deploy,body.v6-refined main .v6-diagram .v6-access{grid-template-columns:1fr}
+body.v6-ei main .hero-have-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+body.v6-ei main .hero{padding:55px 0!important}
+}
+
+body.v6-refined main .v6-svg-readable .dgm-scroll{overflow-x:auto!important}
+body.v6-refined main .v6-svg-readable svg{min-width:850px!important}

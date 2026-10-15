@@ -1,0 +1,7 @@
+/* Banking navigation harmonization */
+.rt-nav a.active,.rt-nav a[aria-current="page"]{color:#5941c6;font-weight:800}
+.rt-nav .rt-parent.active{color:#5941c6;font-weight:800}
+.rt-nav .rt-sub a.active{background:rgba(89,65,198,.10);border-radius:7px}
+.rt-brand img{max-height:62px!important;width:auto!important}
+@media(max-width:850px){.rt-brand img{max-height:49px!important}}
+/* Consolidated banking workflows sections retain original colors and components */

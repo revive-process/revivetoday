@@ -1,0 +1,10 @@
+/* Hero contrast corrections — four banking pages only. */
+body .hero {background:linear-gradient(120deg,#fbfdff 0%,#f5f8fc 62%,#f0f5f9 100%)!important;color:#19324c!important}
+body .hero .eyebrow,body .hero p.eyebrow,body .hero .kicker{color:#5944a5!important;opacity:1!important}
+body .hero h1,body .hero h1 .sentence:not(.accent),body .hero h1 .sentence:not(.accent) .line,body .hero h1 > span:not(.accent),body .hero h1 .hero-line-navy{color:#19324c!important;-webkit-text-fill-color:#19324c!important}
+body .hero h1 .hero-line-teal{color:#286f69!important;-webkit-text-fill-color:#286f69!important}
+body .hero h1 .sentence.accent,body .hero h1 .sentence.accent .line,body .hero h1 > span.accent{color:#477ca7!important;-webkit-text-fill-color:#477ca7!important}
+body .hero .hero-lede,body .hero .hero-copy,body .hero .hero-lede p,body .hero .hero-copy p{color:#354e67!important;opacity:1!important}
+body .hero .hero-lede strong,body .hero .hero-copy strong{color:#19324c!important;opacity:1!important}
+body .hero .hero-visual,body .hero .hero-image-wrap{min-width:0}
+body .hero .hero-visual img,body .hero .hero-image-wrap img{object-fit:contain!important}

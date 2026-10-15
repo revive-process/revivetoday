@@ -1,342 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Execution Intelligence for Banks | RE-ViVE</title>
-<meta name="description" content="RE-ViVE reconstructs how banking work actually executes across onboarding, payments, lending and case operations, from records the bank already keeps. Read-only, no process remodelling, first view in about 10 business days.">
-<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/css/site.css">
-<link rel="stylesheet" href="assets/css/chrome.css">
-</head>
+<meta content="RE-ViVE reconstructs how banking work actually executes across onboarding, payments, lending and case operations, from records the bank already keeps. Read-only, no process remodelling, first view in about 10 business days." name="description"/>
+<link href="images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/css/site.css" rel="stylesheet"/>
+<link href="assets/css/chrome.css" rel="stylesheet"/>
+<link href="assets/css/banking-extension.css" rel="stylesheet"/><link href="assets/css/banking-v2.css" rel="stylesheet"/><link href="assets/css/banking-v3.css" rel="stylesheet"/><style>
+/* Homepage-only V4 refinements; no changes to shared stylesheets */
+.ei-story-band .head{max-width:850px}.ei-story-graphic{margin-top:28px;border-radius:22px;overflow:hidden;box-shadow:0 16px 42px rgba(22,44,73,.09)}.ei-story-graphic svg,.ei-platform-visual svg{display:block;width:100%;height:auto}.story-eyebrow{font:800 13px Arial,sans-serif;letter-spacing:2px;fill:#63798e}.story-title{font:800 24px Arial,sans-serif;fill:#233853}.story-body{font:700 17px Arial,sans-serif;fill:#243953}.story-muted{font:600 15px Arial,sans-serif;fill:#64798c}.story-labels{font:700 14px Arial,sans-serif;fill:#41576d}.story-purple,.story-blue,.story-orange{font:800 13px Arial,sans-serif}.story-purple{fill:#6646b1}.story-blue{fill:#286c9e}.story-orange{fill:#ae5b28}.story-foot{font:700 15px Arial,sans-serif;fill:#4b6679}.ei-story-main-path{stroke-dasharray:12 10;animation:ei-dash 9s linear infinite}.ei-story-pulse{animation:ei-follow 9s linear infinite;filter:drop-shadow(0 0 5px #54b6be)}@keyframes ei-dash{to{stroke-dashoffset:-176}}@keyframes ei-follow{0%{transform:translateX(0);opacity:1}90%{transform:translateX(590px);opacity:1}100%{transform:translateX(590px);opacity:0}}.ei-platform-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(25px,4vw,65px);align-items:center;margin-top:24px}.ei-platform-intro{font-size:1.1rem;line-height:1.7;color:#42556c}.ei-platform-points{display:grid;gap:16px;margin:22px 0 26px}.ei-platform-points>div{padding:0 0 14px 18px;border-left:3px solid #368d90;display:grid;gap:4px}.ei-platform-points>div:nth-child(2){border-color:#6e54bf}.ei-platform-points>div:nth-child(3){border-color:#357caa}.ei-platform-points strong{font-size:1.05rem;color:#243652}.ei-platform-points span{font-size:1rem;color:#4a6075}.ei-platform-visual{border:1px solid #d9e4ee;border-radius:22px;overflow:hidden;box-shadow:0 14px 35px rgba(20,42,75,.08)}.ei-svg-labels rect{fill:#fff;stroke:#d4e0ec;stroke-width:1.5}.ei-svg-labels text{font:700 17px Arial,sans-serif;fill:#283e58;text-anchor:middle}.ei-logo{font:800 23px Arial,sans-serif;fill:#493da0}.ei-logo-small{font:700 10px Arial,sans-serif;fill:#46627b}.ei-svg-caption{font:700 14px Arial,sans-serif;fill:#567088}.ei-svg-dot{animation:ei-pulse 2.8s ease-in-out infinite}@keyframes ei-pulse{50%{r:12;opacity:.55}}@media(max-width:850px){.ei-platform-layout{grid-template-columns:1fr}.ei-story-graphic{overflow-x:auto}.ei-story-graphic svg{min-width:700px}.ei-story-graphic{scrollbar-width:thin}}@media(prefers-reduced-motion:reduce){.ei-story-main-path,.ei-story-pulse,.ei-svg-dot{animation:none!important}.ei-story-pulse{opacity:0}}
+</style><style>
+/* V5 landing-only refinements */
+.ei-validation .head .kicker{font-size:13px;letter-spacing:2px;line-height:1.4;max-width:none}.ei-validation .head{max-width:900px}.ei-validation-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.ei-validation-grid>div{min-width:0}.ei-validation-grid .proof-icon{display:inline-flex;align-items:center;justify-content:center;background:#e9f4f0;color:#237c72;width:44px;height:44px;border-radius:13px;font-size:23px;margin-bottom:14px}.ei-validation-grid>div:nth-child(2) .proof-icon{background:#e9effb;color:#385fa4}.ei-validation-grid>div:nth-child(3) .proof-icon{background:#f1eafb;color:#7252b8}.ei-validation-grid h3{font-size:1.3rem;line-height:1.35}.ei-validation-grid p{line-height:1.6}.ei-validation .head h2{max-width:780px}.ei-story-graphic{max-width:1320px;margin-left:auto;margin-right:auto}.ei-story-pulse{animation:none!important;filter:drop-shadow(0 0 4px #42a6b1)}.ei-story-main-path{animation:none!important}.ei-implementation{border:1px solid #d1e0eb;border-radius:24px;padding:clamp(22px,3vw,44px);margin-top:48px;background:linear-gradient(115deg,#f5fafb 0%,#fff 58%,#f6f2fc 100%);box-shadow:0 15px 38px rgba(31,55,88,.06)}.ei-implementation .qa{margin-top:22px!important}.ei-implementation .qa .card{border-radius:15px;background:#fff}.ei-implementation .qa .tag{font-size:1.08rem;font-weight:800;letter-spacing:0;text-transform:none;line-height:1.4;display:block;margin-bottom:12px;color:#253a56}.ei-implementation .qa strong{color:#277a7c}.ei-implementation .qa .card:nth-child(2) strong{color:#6351b7}.ei-implementation .qa .card:nth-child(3) strong{color:#2c73a4}.ei-implementation h2{font-size:clamp(1.7rem,2.7vw,2.6rem);max-width:850px}.ei-implementation .kicker{color:#5b49bd}.ei-implementation .subtext{color:#51677a;max-width:780px;font-size:1.07rem;line-height:1.65}.starts{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:center}.starts li{min-height:65px;display:flex;align-items:center}.starts li:last-child{grid-column:1/-1;border-color:#78b6b1;color:#fff}.ei-hero-visual{width:100%;height:auto;display:block}.hero figure{overflow:visible}.ei-hero-visual text{font-family:Arial,sans-serif}.ei-hero-flow{fill:none;stroke:#4a9bb5;stroke-width:4;stroke-linecap:round}.ei-hero-trace{fill:none;stroke:#8060ce;stroke-width:3;stroke-linecap:round}.ei-hero-moving{filter:drop-shadow(0 0 5px #5bbbd1)}@media(max-width:780px){.ei-validation-grid{grid-template-columns:1fr}.ei-implementation{padding:22px}.starts{grid-template-columns:1fr}.starts li:last-child{grid-column:auto}}
+@media(prefers-reduced-motion:reduce){.ei-hero-visual animateMotion,.ei-hero-visual animate,.ei-story-graphic animateMotion,.ei-story-graphic animate{display:none}.ei-story-pulse{opacity:0}}
+</style><style>.ei-proof-bottom{margin:24px 0 20px;padding:18px 23px;border-left:4px solid #318b87;background:linear-gradient(90deg,#eaf6f2,#f2f4fb);border-radius:0 13px 13px 0;font-size:1.05rem;line-height:1.7;color:#314b62}.ei-proof-bottom strong{color:#1e655e}.ei-accent{color:#6350b8}.ei-variant-bottom{font-size:1.08rem;color:#47647b;margin-top:22px}.ei-variant-bottom strong{color:#294d69}.ei-story-band .head{max-width:900px}.ei-platform-visual image{pointer-events:none}@media(max-width:850px){.ei-story-graphic svg{min-width:800px}}@media(prefers-reduced-motion:reduce){.ei-story-graphic animateMotion,.ei-platform-visual animateMotion,.ei-platform-visual animate{display:none}}</style><link href="assets/css/banking-nav-v4.css" rel="stylesheet"/><link href="assets/css/banking-production-v7.css" rel="stylesheet"/></head>
 <body>
-
 <header class="rt-header">
-  <div class="rt-shell">
-    <a class="rt-brand" href="index.html"><img src="images/revive-logo-default-240.webp" alt="RE-ViVE"><span>Execution Intelligence</span></a>
-    <button class="rt-toggle" aria-label="Menu" aria-expanded="false" onclick="var n=document.getElementById('rt-nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰</button>
-    <nav class="rt-nav" id="rt-nav" aria-label="Main">
-      <a href="banking.html">Banking</a>
-      <a href="workflows.html">Workflows</a>
-      <a href="success-stories.html">Success Stories</a>
-      <a href="platform.html">Platform</a>
-      <div class="rt-item">
-        <a href="industries.html" class="rt-parent">Industries</a>
-        <div class="rt-sub" aria-label="Industries">
-          <a href="industries.html">All industries</a>
-          <a href="banking.html">Banking</a>
-          <a href="industry-insurance.html">Insurance</a>
-          <a href="industry-capital-markets.html">Capital markets</a>
-          <a href="industry-manufacturing.html">Manufacturing</a>
-          <a href="industry-healthcare.html">Healthcare &amp; life sciences</a>
-          <a href="industry-retail-consumer-goods.html">Retail &amp; consumer goods</a>
-          <a href="private-equity.html">Private equity</a>
-        </div>
-      </div>
-      <div class="rt-item">
-        <a href="company.html" class="rt-parent">Company</a>
-        <div class="rt-sub" aria-label="Company">
-          <a href="company.html">About us</a>
-          <a href="leadership.html">Leadership</a>
-          <a href="insights.html">Insights</a>
-          <a href="careers.html">Careers</a>
-        </div>
-      </div>
-      <a class="rt-cta" href="mailto:connect@revivetoday.com">Talk to us</a>
-    </nav>
-  </div>
+<div class="rt-shell">
+<a class="rt-brand" href="index.html"><img alt="RE-ViVE" decoding="async" src="images/revive-logo-default-240.webp"/><span>Execution Intelligence</span></a>
+<button aria-controls="rt-nav" aria-expanded="false" aria-label="Menu" class="rt-toggle" onclick="var n=document.getElementById('rt-nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">☰</button>
+<nav aria-label="Main" class="rt-nav" id="rt-nav">
+<a aria-current="page" class="active" href="index.html">Banking Home</a>
+<div class="rt-item"><a class="rt-parent" href="workflows.html">Banking Solutions</a><div class="rt-sub"><a href="workflows.html">Banking Workflows</a><a href="banking-community-banks.html">Community Banks</a><a href="banking-regional-banks.html">Regional &amp; Mid-size Banks</a><a href="banking-large-banks.html">Large &amp; Global Banks</a></div></div>
+<a href="why-revive.html">Why RE-ViVE</a>
+<div class="rt-item"><a class="rt-parent" href="platform.html">Platform</a><div class="rt-sub"><a href="platform.html">Platform Overview</a><a href="execution-intelligence.html">Execution Intelligence</a><a href="enterprise-ai.html">AI Execution Intelligence</a><a href="platform-deployment.html">Architecture &amp; Deployment</a></div></div>
+<div class="rt-item"><a class="rt-parent" href="industries.html">Other Industries</a><div class="rt-sub"><a href="industry-capital-markets.html">Capital Markets</a><a href="industry-insurance.html">Insurance</a><a href="industry-healthcare.html">Healthcare</a><a href="https://re-vive.com/">More on RE-ViVE.com ↗</a></div></div>
+<a class="rt-contact" href="https://re-vive.com/company/contact">Connect</a>
+</nav>
+</div>
 </header>
-
 <main>
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="shell">
-      <div>
-        <p class="kicker">Execution Intelligence for Banks</p>
-        <h1>Banks know what happened. RE-ViVE reveals <em>how it was processed.</em></h1>
-        <p class="lead">See how banking work actually executes across processes, systems, teams and controls, not just the status or outcome recorded at the end.</p>
-        <div class="actions">
-          <a class="btn btn-light" href="banking.html">Execution Intelligence for Banking</a>
-          <a class="btn btn-outline-light" href="success-stories.html">See the success stories</a>
-        </div>
-        <ul class="chips">
-          <li>Read-only access</li>
-          <li>No process remodelling</li>
-          <li>First execution view in about 10 business days</li>
-        </ul>
-      </div>
-      <figure>
-        <img src="images/banking/banking-workflows-expected-vs-observed-1600.webp" srcset="images/banking/banking-workflows-expected-vs-observed-800.webp 800w, images/banking/banking-workflows-expected-vs-observed-1600.webp 1600w" sizes="(max-width: 1080px) 90vw, 480px" width="1600" height="1000" alt="Expected workflow compared with observed execution, revealing waiting, rework and manual intervention" fetchpriority="high">
-      </figure>
-    </div>
-  </section>
-
-  <!-- Numbers -->
-  <section class="band band-tint">
-    <div class="shell">
-      <div class="stats">
-        <div class="stat">
-          <div class="n">6 of 10<small>onboarding days</small></div>
-          <p><b>were rework</b> at a large multinational bank: 138,769 repeated days across 13,685 account-opening requests, 70% of it in four of 29 activities.</p>
-        </div>
-        <div class="stat">
-          <div class="n">13%<small>inside SLA</small></div>
-          <p><b>at a global payments bank</b> whose reporting showed one queue resolved in the month. It was two processes: 55% closed in under a minute; 9,594 cases ran past four days.</p>
-        </div>
-        <div class="stat">
-          <div class="n">~100<small>service workflows</small></div>
-          <p><b>made visible in about 10 business days</b> at a bank with no documented process model, from about 4 hours of subject-matter time.</p>
-        </div>
-      </div>
-      <p class="stats-note">Figures from RE-ViVE banking engagements, reconstructed from each bank's own records. The same method applies to lending, servicing, disputes, KYC and AML reviews, and trade operations.</p>
-    </div>
-  </section>
-
-  <!-- Status vs execution -->
-  <section class="band">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">The harder question</p>
-        <h2>The status can look right while the execution underneath tells a different story.</h2>
-      </div>
-      <div class="contrast">
-        <div class="col">
-          <h3>What the bank already sees</h3>
-          <ul><li>Transactions</li><li>Status</li><li>SLA</li><li>Approvals</li><li>Balances</li></ul>
-        </div>
-        <p class="mid">How did the work actually get there?</p>
-        <div class="col dark">
-          <h3>The execution underneath the outcome</h3>
-          <ul><li>Waiting</li><li>Rework</li><li>Handoffs</li><li>Approval loops</li><li>Exceptions</li><li>Variants</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why banking is different -->
-  <section class="band band-paper">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">Why banking is different</p>
-        <h2>Banking operations carry pressures most industries do not face simultaneously.</h2>
-      </div>
-      <div class="grid-6">
-        <div class="card"><h3>Fragmented technology environments</h3><p>Critical workflows often cross core platforms, CRM, workflow systems, portals, files and legacy applications.</p></div>
-        <div class="card"><h3>Continuous regulatory and control change</h3><p>Policies, controls and review requirements evolve while the underlying operation must continue to execute.</p></div>
-        <div class="card"><h3>Stringent data governance</h3><p>Access, privacy, residency and security expectations limit how aggressively new technology can touch production environments.</p></div>
-        <div class="card"><h3>Critical resources already committed</h3><p>Operations and technology teams are already balancing regulatory, customer, transformation and run-the-bank priorities.</p></div>
-        <div class="card"><h3>Complex human and system execution</h3><p>Banking work moves between people, approvals, systems, automation and exception handling in ways dashboards rarely show.</p></div>
-        <div class="card"><h3>High-consequence change</h3><p>Process changes can affect customer experience, controls, service levels, cost and operational risk at the same time.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Where it applies -->
-  <section class="band">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">Across banking operations</p>
-        <h2>Where Execution Intelligence applies across the bank.</h2>
-        <p>RE-ViVE can begin with any banking workflow that crosses systems, teams, controls or automation. These are representative areas, not a fixed workflow library.</p>
-      </div>
-      <div class="grid-6 areas">
-        <a class="card link" href="workflows.html"><h3>Customer and account journeys</h3><p>Onboarding · KYC · Account opening · Servicing</p></a>
-        <a class="card link" href="workflows.html"><h3>Treasury and payments</h3><p>Payment onboarding · Exceptions · Investigations · Cash management</p></a>
-        <a class="card link" href="workflows.html"><h3>Lending and credit</h3><p>Application · Underwriting · Approval · Closing · Servicing</p></a>
-        <a class="card link" href="workflows.html"><h3>Service and operations</h3><p>Cases · Requests · Disputes · Investigations</p></a>
-        <a class="card link" href="workflows.html"><h3>Risk, controls and compliance</h3><p>KYC · AML · Reviews · Exceptions · Controls</p></a>
-        <a class="card link" href="workflows.html"><h3>Capital markets and institutional</h3><p>Onboarding · Documentation · Approvals · Servicing</p></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proof -->
-  <section class="band band-tint">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">Proof from banking engagements</p>
-        <h2>What the banks got.</h2>
-        <p>Both engagements ran on the bank's existing records, with no process-modelling exercise first.</p>
-      </div>
-      <div class="proof">
-        <article class="case">
-          <p class="tag">Customer onboarding · 130+ products · ServiceNow and OpenText</p>
-          <p class="outcome">Onboarding <em>about 30% faster</em>, costed from the bank's own records</p>
-          <p class="what">Target: onboarding 25% faster across 130+ products, with no baseline. RE-ViVE showed six of every ten days were rework, concentrated in four of 29 activities.</p>
-          <ul>
-            <li><b>~30% faster</b> across ~6,000 requests by automating document and verification steps</li>
-            <li><b>Average cycle from 10 days toward 6</b> by taking rework out of four activities</li>
-            <li><b>602 requests</b> running past 50 days became a traceable work list, not a statistic</li>
-          </ul>
-          <p class="effort">The bank's effort: about 2 hours of subject-matter time. Findings in two weeks.</p>
-          <a class="more" href="success-stories.html#onboarding">Read the case study →</a>
-        </article>
-        <article class="case">
-          <p class="tag">Payment investigations · 269,488 cases · Pega, SWIFT and Fed messages</p>
-          <p class="outcome">SLA targets the operation <em>can actually meet</em>, and the ageing cases named</p>
-          <p class="what">Reporting showed one queue resolved inside the month. RE-ViVE showed two processes: 55% closing in under a minute, and a manual tail of 9,594 cases past four days, only 13% inside SLA.</p>
-          <ul>
-            <li><b>The 3.6% of volume</b> holding most of the ageing, named and traceable</li>
-            <li><b>Two SLAs</b> for two populations, not one average that describes nobody</li>
-            <li><b>Sanctions-related case types</b> isolated as the addressable drag, at 123 hours per case</li>
-          </ul>
-          <p class="effort">The bank's effort: read-only extracts and a short period of subject-matter support. One month of production data, reconstructed as a process.</p>
-          <a class="more" href="success-stories.html#payments">Read the case study →</a>
-        </article>
-      </div>
-      <p class="proof-note">Measured opportunities from each bank's own records, as published in the RE-ViVE case studies, not results already banked.</p>
-    </div>
-  </section>
-
-  <!-- What banks can see differently -->
-  <section class="band">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">What banks can see differently</p>
-        <h2>See the operational conditions behind performance, customer experience, controls and change.</h2>
-        <p>Two requests can both be completed, meet an SLA or reach the same customer outcome while taking materially different paths through reviews, systems, approvals and exceptions.</p>
-      </div>
-      <div class="grid-3">
-        <div class="card accent"><h3>Performance</h3><p>Where waiting, rework and handoffs extend processing time and consume capacity.</p></div>
-        <div class="card accent"><h3>Customer experience</h3><p>Where repeated reviews, documentation requests and internal handoffs create customer friction.</p></div>
-        <div class="card accent"><h3>Controls and compliance</h3><p>Where actual execution differs from intended controls, approvals or required paths.</p></div>
-        <div class="card accent"><h3>Transformation</h3><p>Whether process change, automation or technology investment actually changed execution.</p></div>
-        <div class="card accent"><h3>Cost and capacity</h3><p>Where avoidable manual effort and repeated work consume operational resources.</p></div>
-        <div class="card accent-teal card"><h3>Start where the workflow is hardest to explain</h3><p>It crosses systems, moves across teams, cycle times vary, exceptions are common, and no one has the end-to-end view.</p><a class="more" href="workflows.html">Banking workflows →</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- In practice -->
-  <section class="band band-paper">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">Banking execution in practice</p>
-        <h2>Turn execution insight into focused operational action.</h2>
-      </div>
-      <div class="practice">
-        <div class="card">
-          <h3>Similar requests followed very different execution paths.</h3>
-          <dl>
-            <dt>Insight</dt><dd>A meaningful share of onboarding work moved through additional reviews, handoffs and repeated activity.</dd>
-            <dt>What the bank can do</dt><dd>Identify which conditions create unnecessary paths and where work can be standardised or simplified.</dd>
-            <dt>Potential value</dt><dd>Lower manual effort · shorter onboarding time · more predictable service · improved customer experience</dd>
-          </dl>
-        </div>
-        <div class="card">
-          <h3>A small number of execution patterns created disproportionate operational effort.</h3>
-          <dl>
-            <dt>Insight</dt><dd>Repeated correspondence, review loops or exceptions concentrated work in particular execution paths.</dd>
-            <dt>What the bank can do</dt><dd>Target the conditions creating repeated work rather than redesigning the entire process.</dd>
-            <dt>Potential value</dt><dd>Recover capacity · reduce avoidable cost · improve SLA performance</dd>
-          </dl>
-        </div>
-        <div class="card">
-          <h3>Completed work did not always mean consistent execution.</h3>
-          <dl>
-            <dt>Insight</dt><dd>Requests reaching the same outcome could pass through materially different approvals, handoffs or control paths.</dd>
-            <dt>What the bank can do</dt><dd>Focus control reviews where execution differs from intended policy rather than reviewing everything equally.</dd>
-            <dt>Potential value</dt><dd>Stronger control assurance · targeted remediation · lower compliance exposure</dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AI in banking -->
-  <section class="band band-navy">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">AI in banking</p>
-        <h2>AI changes the work. Banks still need to understand the execution.</h2>
-        <p>Execution Intelligence provides the operational context needed before AI is introduced, while AI participates in banking workflows, and after the change is made.</p>
-      </div>
-      <div class="steps">
-        <div class="step"><h3>Before AI: know what you are automating.</h3><p>Understand current execution, variants, exceptions, manual intervention and control paths before deciding where AI belongs.</p></div>
-        <div class="step"><h3>During AI: see how it actually participates.</h3><p>Observe decision paths, retries, human intervention, overrides, failures and cost as AI becomes part of banking execution.</p></div>
-        <div class="step"><h3>After AI: know whether execution improved.</h3><p>Evaluate whether AI reduced delay and manual effort, maintained required controls, improved consistency and produced the intended outcome.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Platform -->
-  <section class="band">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">The platform</p>
-        <h2>Connect once. Use it four ways.</h2>
-        <p>RE-ViVE connects to the source records behind a process and shows how the work actually moved from start to finish. The same execution intelligence is then available across all four ViVE modules, without rebuilding it for analysis, compliance, reporting and AI.</p>
-      </div>
-      <div class="modules">
-        <div class="module"><h3><span>ViVE</span> Optim</h3><p>Understand how the process runs, where time and effort are being lost, and where improvement will matter most.</p><ul><li>Process maps with KPIs</li><li>Drill down to an individual execution</li><li>Compare across time and business dimensions</li><li>What-if analysis</li></ul></div>
-        <div class="module"><h3><span>ViVE</span> Comply</h3><p>Define business and control rules, then see how actual executions perform against them.</p><ul><li>Overall and activity-level SLAs</li><li>Mandatory and sequenced activities</li><li>Segregation of duties</li><li>Control monitoring across executions</li></ul></div>
-        <div class="module"><h3><span>ViVE</span> Insights</h3><p>Build reports and dashboards from the same process data without creating another analytical model.</p><ul><li>Drag-and-drop reporting</li><li>Dashboards for your own operating rhythm</li><li>Same measures as the other modules</li><li>Share and schedule</li></ul></div>
-        <div class="module"><h3><span>ViVE</span> Genie</h3><p>Ask questions in natural language and work with answers grounded in the process and its business context.</p><ul><li>Ask questions about the process</li><li>Work with your own documentation</li><li>Quantitative measures come from RE-ViVE</li><li>Explore the evidence behind the answer</li></ul></div>
-      </div>
-      <div class="qa" style="margin-top:40px">
-        <div class="card"><span class="tag">What does our team need to do?</span><p>Provide read-only source access and help us understand the data and process. RE-ViVE performs the heavy lifting required to reconstruct and analyse execution.</p></div>
-        <div class="card"><span class="tag">Will it work with what we already run?</span><p>RE-ViVE is designed to work across core banking, CRM, workflow platforms, databases, files, portals and custom applications rather than requiring a new operational system.</p></div>
-        <div class="card"><span class="tag">Where does our data sit?</span><p>Deployment can be aligned to the bank's environment, including client cloud, private cloud and on-premises options, with source access kept read-only.</p></div>
-      </div>
-      <p style="margin-top:28px"><a class="btn btn-ghost" href="platform.html">Explore the platform</a></p>
-    </div>
-  </section>
-
-  <!-- Also serving -->
-  <section class="band band-paper">
-    <div class="shell">
-      <div class="head">
-        <p class="kicker">Beyond banking</p>
-        <h2>The same execution view, in other operating environments.</h2>
-      </div>
-      <div class="industries">
-        <a href="industries.html#capital-markets">Capital markets<span>Trace fails to their origin</span></a>
-        <a href="industries.html#insurance">Insurance<span>See where claims waited</span></a>
-        <a href="industries.html#private-equity">Private equity<span>How portfolio companies operate</span></a>
-        <a href="industries.html#manufacturing">Manufacturing<span>How production actually ran</span></a>
-        <a href="industries.html#healthcare">Healthcare<span>The pathway, not just the outcome</span></a>
-        <a href="industries.html#retail">Retail and consumer goods<span>One process, 294 ways</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Close -->
-  <section class="close">
-    <div class="shell">
-      <div>
-        <p class="kicker">Start with one high-impact workflow</p>
-        <h2>Your bank already generates the execution data. RE-ViVE makes the execution visible.</h2>
-        <p>Pick a workflow where you know time or effort is being lost but cannot see exactly where. RE-ViVE connects read-only, changes nothing in production, and shows you how the process actually ran.</p>
-        <div class="contact">
-          <span>To speak with the team</span>
-          <a class="mail" href="mailto:connect@revivetoday.com">connect@revivetoday.com</a>
-        </div>
-      </div>
-      <ul class="starts">
-        <li>Customer onboarding</li>
-        <li>Treasury and payment onboarding</li>
-        <li>Credit operations</li>
-        <li>Service and case workflow</li>
-      </ul>
-    </div>
-  </section>
-
+<!-- Hero -->
+<section class="hero">
+<div class="shell">
+<div>
+<p class="kicker">Execution Intelligence for Banks</p>
+<h1>Execution Intelligence for Banking.</h1>
+<p class="lead">See how banking work actually executes across people, applications, controls and AI—and uncover the waiting, rework and exceptions behind business outcomes.</p>
+<div class="actions">
+<a class="btn btn-light" href="banking.html">Explore banking workflows</a>
+<a class="btn btn-outline-light" href="why-revive.html">Why RE-ViVE</a>
+</div>
+<ul class="chips">
+<li>Read-only access</li>
+<li>No process remodelling</li>
+<li>First execution view in about 10 business days</li>
+</ul>
+</div>
+<figure><svg aria-label="Banking request follows a process; RE-ViVE exposes waiting, rework and human intervention behind a completed result" class="ei-hero-visual" role="img" viewbox="0 0 780 525" xmlns="http://www.w3.org/2000/svg">
+<defs><lineargradient id="hvBg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#263a5c"></stop><stop offset="1" stop-color="#1a304e"></stop></lineargradient><filter id="hvShadow"><fedropshadow dx="0" dy="8" flood-opacity=".18" stddeviation="12"></fedropshadow></filter></defs>
+<rect fill="url(#hvBg)" height="492" rx="27" stroke="#536a91" stroke-opacity=".6" width="756" x="12" y="15"></rect>
+<text fill="#c8b6ff" font-size="16" font-weight="700" letter-spacing="2" x="44" y="63">BANKING EXECUTION · BEYOND THE STATUS</text>
+<g font-size="16" font-weight="700" text-anchor="middle"><rect fill="#edf7fc" height="53" rx="13" width="135" x="45" y="92"></rect><text fill="#244766" x="112" y="124">Request</text><rect fill="#edf7fc" height="53" rx="13" width="135" x="222" y="92"></rect><text fill="#244766" x="289" y="124">Review</text><rect fill="#edf7fc" height="53" rx="13" width="135" x="398" y="92"></rect><text fill="#244766" x="466" y="124">Decision</text><rect fill="#e4f5ed" height="53" rx="13" width="155" x="574" y="92"></rect><text fill="#23725d" x="652" y="124">Completed</text></g>
+<path d="M112 177 H650" opacity=".4" stroke="#7395ae" stroke-linecap="round" stroke-width="12"></path>
+<path class="ei-hero-flow" d="M112 177 H650" stroke-dasharray="9 10"></path>
+<path class="ei-hero-trace" d="M466 177 V255 H289 V177"></path>
+<path d="M550 177 V276" stroke="#f0a36a" stroke-dasharray="5 7" stroke-width="3"></path>
+<circle cx="550" cy="305" fill="#fff0e5" r="27"></circle><circle cx="550" cy="296" fill="#cb6d36" r="8"></circle><path d="M534 316 Q550 299 566 316" fill="none" stroke="#cb6d36" stroke-linecap="round" stroke-width="7"></path>
+<g font-size="16" font-weight="700" text-anchor="middle"><rect fill="#e7defc" height="38" rx="11" width="137" x="346" y="248"></rect><text fill="#6443b0" x="415" y="273">Rework loop</text><rect fill="#fff0e6" height="40" rx="11" width="171" x="465" y="344"></rect><text fill="#aa5429" x="551" y="370">Human handoff</text><rect fill="#dff0fc" height="38" rx="11" width="120" x="178" y="204"></rect><text fill="#2a729e" x="238" y="229">Waiting</text></g>
+<g fill="#75a9c8"><circle cx="112" cy="177" r="11"></circle><circle cx="289" cy="177" r="11"></circle><circle cx="466" cy="177" r="11"></circle><circle cx="650" cy="177" fill="#44b69b" r="11"></circle></g>
+<circle class="ei-hero-moving" fill="#fff" r="10" stroke="#5bd6de" stroke-width="4"><animatemotion dur="13s" path="M112 177 L289 177 L466 177 L466 255 L289 255 L289 177 L466 177 L550 177 L550 305 L550 305 L550 177 L650 177" repeatcount="indefinite"></animatemotion></circle>
+<rect fill="#ffffff" fill-opacity=".1" height="55" rx="13" stroke="#9ab0cc" stroke-opacity=".3" width="684" x="45" y="422"></rect>
+<text fill="#f5f8ff" font-size="18" font-weight="700" text-anchor="middle" x="387" y="455">Same outcome. A very different execution story.</text>
+</svg></figure>
+</div>
+</section>
+<!-- Numbers -->
+<section class="band ei-validation"><div class="shell"><div class="head"><p class="kicker">PROVEN IN BANKING</p><h2>Real banking experience. Proven competitive strength.</h2><p>RE-ViVE is serving two banking customers, applying Execution Intelligence to real operational processes and enterprise data. Its approach has also succeeded in two competitive evaluations involving established enterprise software alternatives.</p></div><div class="ei-validation-grid"><div><span aria-hidden="true" class="proof-icon">▣</span><h3>Two banking customers</h3><p>Experience with real banking operations, including <strong>B2B customer onboarding</strong> and <strong>lost and stolen card replacement</strong> workflows.</p></div><div><span aria-hidden="true" class="proof-icon">↗</span><h3>Two successful competitive evaluations</h3><p>Selected through evaluations involving established enterprise process intelligence alternatives—demonstrating a <strong>credible differentiated approach</strong>.</p></div><div><span aria-hidden="true" class="proof-icon">◎</span><h3>Built for broader banking operations</h3><p>Extend the same execution foundation to <strong>payments, lending, controls, servicing and capital-markets workflows</strong> as needs evolve.</p></div></div><p class="ei-proof-bottom"><strong>Complex workflows. Multiple systems. Minimal process preparation.</strong> RE-ViVE reconstructs execution from existing operational records—without requiring predefined process models or a lengthy discovery-and-conformance cycle.</p><a class="btn btn-primary" href="why-revive.html">Why banks choose RE-ViVE →</a></div></section>
+<!-- Status vs execution -->
+<section class="band ei-story-band"><div class="shell"><div class="head"><p class="kicker">THE EXECUTION REALITY</p><h2>One expected process. <span class="ei-accent">Many actual paths.</span></h2><p>A banking transaction may follow the approved process—or take a different route through repeated validation, waiting, manual review and exceptions. The outcome can look identical even when the journey is not.</p></div><div aria-label="Illustrative account-opening transaction: one expected path and three observed execution variants including rework and manual approval" class="ei-story-graphic" role="img"><svg viewbox="0 0 1120 510" xmlns="http://www.w3.org/2000/svg"><defs><lineargradient id="variantBg" x2="1" y2="1"><stop stop-color="#f6fafc"></stop><stop offset="1" stop-color="#edf5f2"></stop></lineargradient><marker id="arrV" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0L7 3.5L0 7Z" fill="#66859a"></path></marker></defs><rect fill="url(#variantBg)" height="508" rx="23" stroke="#d5e3eb" width="1118" x="1" y="1"></rect><rect fill="#fff" height="156" rx="17" stroke="#d8e5eb" width="1064" x="28" y="23"></rect><text fill="#637c91" font-size="14" font-weight="800" letter-spacing="2" x="50" y="52">EXPECTED EXECUTION</text><text fill="#28415b" font-size="16" font-weight="700" x="50" y="76">Illustrative account-opening transaction</text><path d="M95 119H1015" marker-end="url(#arrV)" stroke="#b8cfdd" stroke-width="5"></path><g fill="#367da7" stroke="#fff" stroke-width="3"><circle cx="110" cy="119" r="13"></circle><circle cx="325" cy="119" r="13"></circle><circle cx="540" cy="119" r="13"></circle><circle cx="755" cy="119" r="13"></circle><circle cx="995" cy="119" r="13"></circle></g><g fill="#334f66" font-size="16" font-weight="700" text-anchor="middle"><text x="110" y="151">Request</text><text x="325" y="151">Validation</text><text x="540" y="151">Review</text><text x="755" y="151">Approval</text><text x="995" y="151">Complete</text></g><text fill="#637c91" font-size="14" font-weight="800" letter-spacing="2" x="50" y="214">ACTUAL EXECUTION VARIANTS</text><text fill="#5c7488" font-size="15" x="50" y="239">Same transaction type. Different journeys through the bank.</text><g fill="#314b63" font-size="15" font-weight="700"><text x="50" y="288">Standard</text><text x="50" y="360">Rework</text><text x="50" y="432">Human review</text></g><g fill="none" stroke-linecap="round" stroke-width="5"><path d="M205 282H1005" stroke="#248c78"></path><path d="M205 354H1005" opacity=".4" stroke="#7153c5"></path><path d="M205 426H1005" opacity=".4" stroke="#d4834d"></path><path d="M205 282H1005" id="varStandard" stroke="transparent"></path><path d="M205 354H530 V315 H350 V354 H1005" id="varRework" stroke="#7153c5"></path><path d="M205 426H740 V464 H830 V426 H1005" id="varHuman" stroke="#d4834d"></path></g><g fill="#fff" stroke-width="3"><circle cx="205" cy="282" r="9" stroke="#248c78"></circle><circle cx="1005" cy="282" r="9" stroke="#248c78"></circle><circle cx="530" cy="354" r="9" stroke="#7153c5"></circle><circle cx="1005" cy="354" r="9" stroke="#7153c5"></circle><circle cx="740" cy="426" r="9" stroke="#d4834d"></circle><circle cx="1005" cy="426" r="9" stroke="#d4834d"></circle></g><rect fill="#eee8fa" height="29" rx="12" width="145" x="370" y="294"></rect><text fill="#6445b3" font-size="14" font-weight="700" text-anchor="middle" x="442" y="314">Repeat validation</text><rect fill="#fff0e4" height="28" rx="12" width="120" x="747" y="463"></rect><text fill="#a85a2e" font-size="13" font-weight="700" text-anchor="middle" x="807" y="482">Manual approval</text><g fill="#fff" stroke-width="3"><circle r="9" stroke="#248c78"><animatemotion dur="9s" path="M205 282H1005" repeatcount="indefinite"></animatemotion></circle><circle r="9" stroke="#7153c5"><animatemotion calcmode="linear" dur="13s" keypoints="0;.37;.43;.59;.67;1" keytimes="0;.32;.40;.55;.63;1" path="M205 354H530 V315 H350 V354 H1005" repeatcount="indefinite"></animatemotion></circle><circle r="9" stroke="#d4834d"><animatemotion calcmode="linear" dur="15s" keypoints="0;.55;.60;.60;.7;1" keytimes="0;.4;.46;.62;.68;1" path="M205 426H740 V464 H830 V426 H1005" repeatcount="indefinite"></animatemotion></circle></g></svg></div><p class="ei-variant-bottom">The question is not only whether a transaction completed—but <strong>which path it took, where time was lost, and what that means at scale.</strong></p></div></section>
+<!-- Why banking is different -->
+<!-- Where it applies -->
+<section class="band band-paper" id="bank-types"><div class="shell"><div class="head"><p class="kicker">Designed for different banking environments</p><h2>Different banks. Different operating realities. One execution view.</h2><p>Explore how Execution Intelligence addresses the priorities of institutions at different scales, without assuming their operating models are the same.</p></div><div class="ei-three"><a class="ei-tile" href="banking-community-banks.html"><img alt="Community bank operational complexity" decoding="async" loading="lazy" src="images/banking/community-bank-execution-complexity-800.webp"/><div><span class="ei-eyebrow">Community banks</span><h3>Make limited capacity go further.</h3><p>Identify document rework, manual handoffs and exceptions without launching a major transformation program.</p><strong>Explore community banks →</strong></div></a><a class="ei-tile" href="banking-regional-banks.html"><img alt="Regional bank operational growth" decoding="async" loading="lazy" src="images/banking/regional-bank-growth-reality-800.webp"/><div><span class="ei-eyebrow">Regional banks</span><h3>See what growth changes in execution.</h3><p>Understand the operational effects of expansion, integration and modernization across functions.</p><strong>Explore regional banks →</strong></div></a><a class="ei-tile" href="banking-large-banks.html"><img alt="Large bank execution across systems" decoding="async" loading="lazy" src="images/banking/large-global-banks-execution-boundaries-800.webp"/><div><span class="ei-eyebrow">Global and large banks</span><h3>See across organizational boundaries.</h3><p>Connect execution evidence across complex technology, teams and control environments.</p><strong>Explore global banks →</strong></div></a></div></div></section><section class="band">
+<div class="shell">
+<div class="head">
+<p class="kicker">Across banking operations</p>
+<h2>Where Execution Intelligence applies across the bank.</h2>
+<p>RE-ViVE can begin with any banking workflow that crosses systems, teams, controls or automation. These are representative areas, not a fixed workflow library.</p>
+</div>
+<div class="grid-6 areas">
+<a class="card link" href="process-customer-onboarding.html"><h3>Customer and account journeys</h3><p>Onboarding · KYC · Account opening · Servicing</p></a>
+<a class="card link" href="process-payment-investigations.html"><h3>Treasury and payments</h3><p>Payment onboarding · Exceptions · Investigations · Cash management</p></a>
+<a class="card link" href="banking.html"><h3>Lending and credit</h3><p>Application · Underwriting · Approval · Closing · Servicing</p></a>
+<a class="card link" href="process-service-resolution.html"><h3>Service and operations</h3><p>Cases · Requests · Disputes · Investigations</p></a>
+<a class="card link" href="article-how-process-observability-is-transforming-risk-compliance-in-banking.html"><h3>Risk, controls and compliance</h3><p>KYC · AML · Reviews · Exceptions · Controls</p></a>
+<a class="card link" href="industry-capital-markets.html"><h3>Capital markets and institutional</h3><p>Onboarding · Documentation · Approvals · Servicing</p></a>
+</div>
+</div>
+</section>
+<!-- Proof -->
+<!-- What banks can see differently -->
+<!-- In practice -->
+<!-- AI in banking -->
+<section class="band band-navy">
+<div class="shell">
+<div class="head">
+<p class="kicker">AI in banking</p>
+<h2>AI changes the work. Banks still need to understand the execution.</h2>
+<p>Execution Intelligence provides the operational context needed before AI is introduced, while AI participates in banking workflows, and after the change is made.</p>
+</div>
+<div class="steps">
+<div class="step"><h3>Before AI: know what you are automating.</h3><p>Understand current execution, variants, exceptions, manual intervention and control paths before deciding where AI belongs.</p></div>
+<div class="step"><h3>During AI: see how it actually participates.</h3><p>Observe decision paths, retries, human intervention, overrides, failures and cost as AI becomes part of banking execution.</p></div>
+<div class="step"><h3>After AI: know whether execution improved.</h3><p>Evaluate whether AI reduced delay and manual effort, maintained required controls, improved consistency and produced the intended outcome.</p></div>
+</div>
+</div>
+</section>
+<!-- Platform -->
+<section class="band">
+<div class="shell">
+<div class="head">
+<p class="kicker">The platform</p>
+<h2>Execution Intelligence. <span class="ei-accent">Beyond traditional process mining and custom solutions.</span></h2>
+<p>A fundamentally different starting point: reconstruct actual execution from existing records, then analyze and monitor it across people, applications, automation and AI.</p>
+</div>
+<div class="ei-platform-layout"><div class="ei-platform-copy"><p class="ei-platform-intro"><strong>Traditional process mining and custom-built solutions often begin with extensive process discovery, modeling or integration effort.</strong> RE-ViVE starts with existing execution evidence and deterministically reconstructs how work actually happened across systems.</p><div class="ei-platform-points"><div><strong>No predefined process model required</strong><span>Begin with business records and relationships, not a manually modeled ideal path.</span></div><div><strong>Cross-system, deterministic execution</strong><span>Reveal variants, rework, waiting, controls and exceptions across the actual journey.</span></div><div><strong>One foundation for ongoing intelligence</strong><span>Analyze, compare, monitor and extend visibility to AI execution without rebuilding the process view.</span></div></div><a class="btn btn-primary" href="platform.html">Explore the platform →</a></div><div aria-label="People, systems, automation and AI records flow into RE-ViVE and produce an execution map showing actual paths, rework and exceptions" class="ei-platform-visual" role="img"><svg viewbox="0 0 730 435" xmlns="http://www.w3.org/2000/svg"><defs><lineargradient id="pbg" x2="1" y2="1"><stop stop-color="#eff7fa"></stop><stop offset="1" stop-color="#f1edfa"></stop></lineargradient></defs><rect fill="url(#pbg)" height="435" rx="20" width="730"></rect><text fill="#526b84" font-size="13" font-weight="800" letter-spacing="1.5" x="26" y="34">OPERATIONAL EVIDENCE</text><text fill="#526b84" font-size="13" font-weight="800" letter-spacing="1.5" x="505" y="34">WHAT RE-ViVE REVEALS</text><g fill="#fff" stroke="#cbdce8" stroke-width="1.5"><rect height="50" rx="12" width="152" x="22" y="67"></rect><rect height="50" rx="12" width="152" x="22" y="139"></rect><rect height="50" rx="12" width="152" x="22" y="211"></rect><rect height="50" rx="12" width="152" x="22" y="283"></rect></g><g fill="#29415b" font-size="17" font-weight="700" text-anchor="middle"><text x="98" y="99">People</text><text x="98" y="171">Systems</text><text x="98" y="243">Automation</text><text x="98" y="315">AI agents</text></g><g fill="none" stroke-width="3"><path d="M174 92 C226 92 224 184 276 196" stroke="#7255bd"></path><path d="M174 164 C230 164 229 196 276 196" stroke="#397fa9"></path><path d="M174 236 C230 236 229 196 276 196" stroke="#238b78"></path><path d="M174 308 C226 308 224 209 276 196" stroke="#d57b42"></path></g><circle cx="342" cy="196" fill="#fff" r="77" stroke="#c9d9e7" stroke-width="3"></circle><circle cx="342" cy="196" fill="#f5f3fb" r="68"></circle><image height="91" href="images/revive-logo-default-240.webp" preserveaspectratio="xMidYMid meet" width="106" x="289" y="147"/><text fill="#536b85" font-size="12" font-weight="700" text-anchor="middle" x="342" y="260">EXECUTION INTELLIGENCE</text><path d="M420 196H475" fill="none" stroke="#3688a6" stroke-width="4"></path><circle cx="470" cy="196" fill="#318d9c" r="7"><animate attributename="opacity" dur="2.6s" repeatcount="indefinite" values=".35;1;.35"></animate></circle><rect fill="#fff" height="275" rx="17" stroke="#cadce8" stroke-width="2" width="217" x="489" y="64"></rect><text fill="#263e58" font-size="16" font-weight="800" x="507" y="93">Actual execution paths</text><path d="M514 153H682" stroke="#c8dbe4" stroke-linecap="round" stroke-width="5"></path><path d="M564 153V121H615V153" fill="none" stroke="#7255bd" stroke-width="3"></path><g fill="#fff" stroke-width="3"><circle cx="518" cy="153" r="9" stroke="#3480ac"></circle><circle cx="564" cy="153" r="9" stroke="#3480ac"></circle><circle cx="615" cy="153" r="9" stroke="#7255bd"></circle><circle cx="680" cy="153" r="9" stroke="#268c79"></circle></g><rect fill="#e8e1f8" height="37" rx="10" width="85" x="515" y="196"></rect><text fill="#6246ad" font-size="14" font-weight="700" text-anchor="middle" x="558" y="219">Rework</text><rect fill="#e2eff7" height="37" rx="10" width="82" x="610" y="196"></rect><text fill="#246d9b" font-size="14" font-weight="700" text-anchor="middle" x="651" y="219">Waiting</text><rect fill="#e5f3ed" height="41" rx="10" width="177" x="515" y="245"></rect><text fill="#247f6c" font-size="14" font-weight="700" text-anchor="middle" x="603" y="271">Exceptions &amp; controls</text><circle fill="#7255bd" r="6"><animatemotion dur="8s" path="M518 153 H564 V121 H615 V153 H680" repeatcount="indefinite"></animatemotion></circle><text fill="#526b84" font-size="15" font-weight="700" text-anchor="middle" x="365" y="388">Existing records → deterministic reconstruction → execution insight</text></svg></div></div>
+<div class="ei-implementation"><p class="kicker">PRACTICAL DEPLOYMENT</p><h2>What does it take to get started?</h2><p class="subtext">RE-ViVE works with the systems and records a bank already has, without replacing operational applications or redesigning workflows.</p><div class="qa" style="margin-top:40px">
+<div class="card"><span class="tag">What does our team need to do?</span><p>Provide <strong>read-only access</strong> to relevant records and collaborate on the workflow and data context. RE-ViVE handles the <strong>execution reconstruction and analysis</strong>.</p></div>
+<div class="card"><span class="tag">Will it work with what we already run?</span><p>Works across <strong>core banking, CRM, workflow platforms, databases, files and custom applications</strong>—without requiring a new operational system.</p></div>
+<div class="card"><span class="tag">Where does our data sit?</span><p>Choose an environment aligned to bank requirements: <strong>private cloud, client cloud or on-premises</strong>, with source access maintained as <strong>read-only</strong>.</p></div>
+</div></div>
+</div>
+</section>
+<!-- Also serving -->
+<!-- Close -->
+<section class="close">
+<div class="shell">
+<div>
+<p class="kicker">START WHERE EXECUTION VISIBILITY MATTERS</p>
+<h2>Start with one workflow. See the bigger picture. <span style="color:#8fd8d2">Across the bank.</span></h2>
+<p>From onboarding and payments to lending, operations, compliance and beyond, RE-ViVE can examine any suitable workflow with available execution evidence. Start with the process that matters most to your bank.</p>
+<div class="contact">
+<span>To speak with the team</span>
+<a class="mail" href="mailto:connect@re-vive.com">connect@re-vive.com</a>
+</div>
+</div>
+<ul class="starts"><li>Customer and business onboarding</li><li>Payments, treasury and investigations</li><li>Lending and credit operations</li><li>Card servicing and disputes</li><li>Risk, compliance and controls</li><li>Capital markets and institutional operations</li><li>Or any other cross-system banking workflow</li></ul>
+</div>
+</section>
 </main>
-
 <footer class="rt-footer">
-  <div class="rt-shell">
-    <div>
-      <a class="rt-brand" href="index.html"><img src="images/revive-logo-inverse-240.webp" alt="RE-ViVE"></a>
-      <p class="rt-tagline">The home of Execution Intelligence for banking operations.</p>
-    </div>
-    <div><h4>Banking</h4><ul><li><a href="banking.html">Execution Intelligence for Banking</a></li><li><a href="workflows.html">Banking workflows</a></li><li><a href="success-stories.html">Success stories</a></li></ul></div>
-    <div><h4>Platform</h4><ul><li><a href="platform.html">Overview and modules</a></li><li><a href="platform-deployment.html">Deployment and security</a></li></ul></div>
-    <div><h4>Industries</h4><ul><li><a href="industries.html">All industries</a></li><li><a href="industry-insurance.html">Insurance</a></li><li><a href="industry-capital-markets.html">Capital markets</a></li><li><a href="industry-manufacturing.html">Manufacturing</a></li><li><a href="industry-healthcare.html">Healthcare &amp; life sciences</a></li><li><a href="industry-retail-consumer-goods.html">Retail &amp; consumer goods</a></li><li><a href="private-equity.html">Private equity</a></li></ul></div>
-    <div><h4>Company</h4><ul><li><a href="company.html">About us</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="insights.html">Insights</a></li><li><a href="careers.html">Careers</a></li><li><a href="mailto:connect@revivetoday.com">Contact</a></li></ul></div>
-    <div class="rt-bottom"><span>© 2026 RE-ViVE. All rights reserved.</span><span>revivetoday.com</span></div>
-  </div>
+<div class="rt-shell">
+<div>
+<a class="rt-brand" href="index.html"><img alt="RE-ViVE" decoding="async" loading="lazy" src="images/revive-logo-inverse-240.webp"/></a>
+<p class="rt-tagline">The home of Execution Intelligence for banking operations.</p>
+</div>
+<div><h4>Banking</h4><ul><li><a href="banking.html">Execution Intelligence for Banking</a></li><li><a href="workflows.html">Banking workflows</a></li><li><a href="success-stories.html">Success stories</a></li></ul></div>
+<div><h4>Platform</h4><ul><li><a href="platform.html">Overview and modules</a></li><li><a href="platform-deployment.html">Deployment and security</a></li></ul></div>
+<div><h4>Industries</h4><ul><li><a href="industries.html">All industries</a></li><li><a href="industry-insurance.html">Insurance</a></li><li><a href="industry-capital-markets.html">Capital markets</a></li><li><a href="industry-manufacturing.html">Manufacturing</a></li><li><a href="industry-healthcare.html">Healthcare &amp; life sciences</a></li><li><a href="industry-retail-consumer-goods.html">Retail &amp; consumer goods</a></li><li><a href="private-equity.html">Private equity</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="company.html">About us</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="insights.html">Insights</a></li><li><a href="careers.html">Careers</a></li><li><a href="mailto:connect@re-vive.com">Contact</a></li></ul></div>
+<div class="rt-bottom"><span>© 2026 RE-ViVE. All rights reserved.</span><span>revivetoday.com</span></div>
+</div>
 </footer>
-
 </body>
 </html>

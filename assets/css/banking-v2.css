@@ -1,0 +1,41 @@
+/* RE-ViVE Banking V2 — consolidated design refinements */
+:root{--v2-navy:#1d2942;--v2-lavender:#cbbaff;--v2-ink:#24334f;--v2-teal:#236d78}
+html{scroll-behavior:smooth}body{overflow-x:hidden}
+/* One navigation system. Contextual banking pages remain in primary dropdown. */
+#banking-subnav-wrap,.banking-subnav{display:none!important}
+.rt-header{position:sticky;top:0;z-index:90;background:#fff}
+.rt-nav a{font-size:clamp(14px,1vw,16px)}
+/* Less dead space and better rhythm across existing page templates. */
+.band,.section{padding-top:clamp(38px,4.3vw,66px)!important;padding-bottom:clamp(38px,4.3vw,66px)!important}
+.hero,.ei-hero{padding-top:clamp(55px,5vw,82px)!important;padding-bottom:clamp(52px,5vw,78px)!important}
+.close,.final{padding-top:clamp(44px,5vw,76px)!important;padding-bottom:clamp(44px,5vw,76px)!important}
+.head,.section-head{margin-bottom:clamp(20px,2.5vw,32px)!important}
+.head h2,.section-head h2{line-height:1.17}
+/* Preserve color character with readable dark-background accents. */
+.hero .kicker,.ei-hero .kicker,.band-navy .kicker,.final .eyebrow,.ei-hero .ei-eyebrow,
+.hero .eyebrow,.band-navy .ei-eyebrow,.close .kicker,
+[style*="background:#1d2942"] .eyebrow{color:var(--v2-lavender)!important}
+.hero p,.ei-hero p,.band-navy .head p{color:#e1e8f4}
+/* Enlarged visual heroes and protected diagrams */
+.hero>.shell,.hero .shell,.ei-split,.hero-grid{grid-template-columns:minmax(0,0.8fr) minmax(0,1.35fr)!important;gap:clamp(22px,3.6vw,55px)!important;align-items:center}
+.hero h1,.ei-hero h1{font-size:clamp(2.35rem,4vw,3.75rem)!important;line-height:1.11!important}
+.hero .lead,.ei-hero .lead{font-size:clamp(1.04rem,1.2vw,1.2rem)!important;line-height:1.55!important}
+.hero img,.ei-hero img,.hero-visual img,.ei-split img{width:100%;max-width:100%;height:auto;object-fit:contain!important;object-position:center!important}
+.ei-tile img,.bank-card img,.segment-card img{object-fit:contain!important;object-position:center!important;background:#f7f9fb;height:clamp(190px,16vw,250px)!important;padding:4px}
+/* Content illustrations should never lose labels to clipping */
+.ei-tile,.ei-card{overflow:visible}
+.ei-tile{overflow:hidden}
+/* Readable card text */
+.ei-tile p,.ei-card p,.card p,.step p,.module p,.contrast li,.ei-validation-grid p,
+.pressure p,.workflow p,.practice-card p{font-size:clamp(15px,1.08vw,17px)!important;line-height:1.57!important}
+.ei-tile h3,.card h3,.step h3,.module h3{font-size:clamp(18px,1.35vw,22px)!important}
+/* Homepage proof and status comparison should feel like one continuous narrative */
+.ei-validation{background:#edf3f8!important}
+.contrast{gap:clamp(10px,2vw,26px)!important}
+.v2-platform-cta{padding:clamp(22px,3vw,36px);border-radius:18px;background:linear-gradient(110deg,#eff6f8,#f3f0fb);display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.v2-platform-cta p{font-size:1.08rem;max-width:680px;line-height:1.55;margin:0}
+.v2-platform-cta .btn{display:inline-flex;padding:14px 22px;background:#22334e;color:#fff;text-decoration:none;border-radius:10px;font-weight:700}
+/* Keep the restrained teal/lavender/navy brand variety */
+.ei-validation-grid>div{border:1px solid #dce5ef}
+@media(max-width:850px){.hero>.shell,.hero .shell,.ei-split,.hero-grid{grid-template-columns:1fr!important}.hero img,.ei-hero img{max-height:none}.ei-three{grid-template-columns:1fr!important}.rt-header{position:relative}.band,.section{padding-top:38px!important;padding-bottom:38px!important}}
+@media(max-width:600px){.hero,.ei-hero{padding-top:42px!important;padding-bottom:45px!important}.ei-validation-grid{grid-template-columns:1fr!important}.hero h1,.ei-hero h1{font-size:2.3rem!important}.ei-tile img{height:220px!important}.v2-platform-cta{padding:20px}}
