@@ -1,0 +1,30 @@
+---
+// Page shell: <head>, shared header and footer. Pages pass their title and
+// description, their own stylesheet links through the "head" slot, and set
+// footer={false} when they carry a bespoke footer in their body.
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+  title,
+  description,
+  current = "",
+  bodyClass = undefined,
+  footer = true,
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>{title}</title>
+<meta content={description} name="description"/>
+<slot name="head" />
+</head>
+<body class={bodyClass}>
+<Header current={current} />
+<slot />
+{footer && <Footer />}
+</body>
+</html>

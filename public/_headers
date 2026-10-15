@@ -1,0 +1,10 @@
+# Security headers for assets served straight from the asset store.
+# src/worker.js sets the same headers on every response that passes through
+# the Worker; keep the two lists in step.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()

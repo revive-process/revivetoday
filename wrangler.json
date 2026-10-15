@@ -1,0 +1,17 @@
+{
+  "name": "revivetoday",
+  "main": "./src/worker.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "revivetoday.com", "custom_domain": true },
+    { "pattern": "www.revivetoday.com", "custom_domain": true }
+  ]
+}

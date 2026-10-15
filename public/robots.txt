@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://revivetoday.com/sitemap-index.xml
