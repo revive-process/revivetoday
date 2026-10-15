@@ -15,6 +15,6 @@ Open `index.html` locally. All original pages and existing images are retained.
 ## Review before external use
 - Verify exact wording and permissions for banking customer and competitive-evaluation claims.
 - Confirm case-study figures, all named relationships and deployment claims.
-- Confirm the provisional `connect@re-vive.com` email address.
+- Confirm the provisional `connect@revivetoday.com` email address.
 - ETF page still has a placeholder for a future illustration.
 - Check in Chrome/Edge and mobile browsers; the zip is a static site without a build step.

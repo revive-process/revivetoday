@@ -24,7 +24,7 @@ Open `index.html` locally. All original pages, PDFs and images are retained. No 
 ## Before external circulation
 1. Confirm exact nature of the two banking customer relationships, competitive evaluation phrasing and disclosure permissions.
 2. Review all inherited case-study numbers, commercial outcomes, and the distinction between realized outcomes and modeled opportunities.
-3. Confirm the contact address (the original zip used connect@revivetoday.com; this build uses connect@re-vive.com as a provisional address).
+3. Confirm the contact address (the original zip used connect@revivetoday.com; this build uses connect@revivetoday.com as a provisional address).
 4. Review customer/technology names in existing content for confidentiality.
 5. If truly confidential, host behind access control; a nonindexed URL alone is not private.
 6. Review ETF page as a proposed application, not an existing deployment.
