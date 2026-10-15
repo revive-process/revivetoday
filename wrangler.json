@@ -11,7 +11,7 @@
     "not_found_handling": "404-page"
   },
   "routes": [
-    { "pattern": "revivetoday.com", "custom_domain": true },
-    { "pattern": "www.revivetoday.com", "custom_domain": true }
+    { "pattern": "revivetoday.com/*", "zone_name": "revivetoday.com" },
+    { "pattern": "www.revivetoday.com/*", "zone_name": "revivetoday.com" }
   ]
 }

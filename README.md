@@ -34,10 +34,12 @@ to the clean form.
 
 ## Deploying
 
-`wrangler.json` names the Worker `revivetoday` and binds the custom domains
-`revivetoday.com` and `www.revivetoday.com` (the zone is already on the
-Cloudflare account). `npm run deploy` publishes the build and creates the
-DNS records for those domains on first deploy.
+`wrangler.json` names the Worker `revivetoday` and attaches it to the zone
+routes `revivetoday.com/*` and `www.revivetoday.com/*`. The zone's existing
+DNS records (proxied A/AAAA for the apex and www, plus mail records) stay as
+they are; a route runs the Worker before any origin is contacted.
+`npm run deploy` builds and publishes. Keep "Always Use HTTPS" on in the
+zone's SSL/TLS settings; the Worker does not upgrade http itself.
 
 ## Adding a page
 
