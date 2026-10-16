@@ -8,26 +8,26 @@ const NAV = [
   { label: "Banking Home", href: "/" },
   { label: "Banking Solutions", href: "/workflows", sub: [
     { label: "Banking Workflows", href: "/workflows" },
+    { label: "How It Works", href: "/how-it-works" },
     { label: "Community Banks", href: "/banking-community-banks" },
     { label: "Regional & Mid-size Banks", href: "/banking-regional-banks" },
     { label: "Large & Global Banks", href: "/banking-large-banks" },
   ]},
   { label: "Why RE-ViVE", href: "/why-revive" },
+  // A sub entry with `heading` (no href) is a small group title inside the drop-down.
   { label: "Platform", href: "/platform", sub: [
     { label: "Platform Overview", href: "/platform" },
     { label: "Execution Intelligence", href: "/execution-intelligence" },
     { label: "AI Execution Intelligence", href: "/enterprise-ai" },
     { label: "Architecture & Deployment", href: "/platform-deployment" },
-  ]},
-  { label: "Other Industries", href: "/industries", sub: [
+    { heading: "Other Industries" },
+    { label: "All Other Industries", href: "/industries" },
     { label: "Capital Markets", href: "/industry-capital-markets" },
     { label: "Insurance", href: "/industry-insurance" },
     { label: "Healthcare", href: "/industry-healthcare" },
     { label: "More on RE-ViVE.com ↗", href: "https://re-vive.com/" },
   ]},
 ];
-
-const CONTACT = { label: "Connect", href: "https://re-vive.com/company/contact" };
 
 const isCurrent = (href) => href === current;
 const parentActive = (item) => isCurrent(item.href) || (item.sub ?? []).some((s) => isCurrent(s.href));
@@ -39,13 +39,14 @@ const cls = (...parts) => parts.filter(Boolean).join(" ") || undefined;
 <button aria-controls="rt-nav" aria-expanded="false" aria-label="Menu" class="rt-toggle" onclick="var n=document.getElementById('rt-nav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)" type="button">☰</button>
 <nav aria-label="Main" class="rt-nav" id="rt-nav">
 {NAV.map((item) => item.sub ? (
-<div class="rt-item"><a aria-current={isCurrent(item.href) ? "page" : undefined} class={cls(parentActive(item) && "active", "rt-parent")} href={item.href}>{item.label}</a><div class="rt-sub">{item.sub.map((s) => (
+<div class="rt-item"><a aria-current={isCurrent(item.href) ? "page" : undefined} class={cls(parentActive(item) && "active", "rt-parent")} href={item.href}>{item.label}</a><div class="rt-sub">{item.sub.map((s) => s.heading ? (
+<span class="rt-sub-head">{s.heading}</span>
+) : (
 <a aria-current={isCurrent(s.href) ? "page" : undefined} class={cls(isCurrent(s.href) && "active")} href={s.href}>{s.label}</a>
 ))}</div></div>
 ) : (
 <a aria-current={isCurrent(item.href) ? "page" : undefined} class={cls(isCurrent(item.href) && "active")} href={item.href}>{item.label}</a>
 ))}
-<a class="rt-contact" href={CONTACT.href}>{CONTACT.label}</a>
 </nav>
 </div>
 </header>

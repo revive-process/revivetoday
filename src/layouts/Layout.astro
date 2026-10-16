@@ -1,7 +1,8 @@
 ---
 // Page shell: <head>, shared header and footer. Pages pass their title and
 // description, their own stylesheet links through the "head" slot, and set
-// footer={false} when they carry a bespoke footer in their body.
+// footer={false} when they carry a bespoke footer in their body, and
+// header={false} when they carry their own header (the landing page does).
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -10,6 +11,7 @@ const {
   description,
   current = "",
   bodyClass = undefined,
+  header = true,
   footer = true,
 } = Astro.props;
 ---
@@ -23,7 +25,7 @@ const {
 <slot name="head" />
 </head>
 <body class={bodyClass}>
-<Header current={current} />
+{header && <Header current={current} />}
 <slot />
 {footer && <Footer />}
 </body>

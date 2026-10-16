@@ -1,0 +1,195 @@
+---
+// "How it works" page: the detail behind the landing page (index.astro).
+// It must not repeat the landing page's numbers or client cards.
+// Diagrams are reused from the previous home page and the Why RE-ViVE page.
+// Shared site header and footer; page styles in /assets/css/landing.css (shared with the landing page).
+import Layout from "../layouts/Layout.astro";
+
+const CONTACT = "https://re-vive.com/company/contact";
+---
+<Layout title="How RE-ViVE Works | Execution Intelligence for Banks" description="How RE-ViVE deterministically reconstructs banking execution from records a bank already keeps: actual paths, parallel work, changing workflows, record-level evidence and flexible deployment." current="/how-it-works">
+<Fragment slot="head">
+<link href="/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link as="font" crossorigin href="/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
+<link href="/assets/css/chrome.css" rel="stylesheet"/>
+<link href="/assets/css/banking-nav-v4.css" rel="stylesheet"/>
+<link href="/assets/css/banking-production-v7.css" rel="stylesheet"/>
+<link href="/assets/css/landing.css" rel="stylesheet"/>
+</Fragment>
+
+
+<main id="main">
+
+  <!-- Intro: one-line recap so the page makes sense on its own -->
+  <section class="lp-section hw-intro">
+    <div class="lp-shell hw-split">
+      <div>
+        <p class="lp-eyebrow">How it works</p>
+        <h1 class="lp-h2 hw-h1">How RE-ViVE sees what other tools can't.</h1>
+        <p class="lp-lead">RE-ViVE reconstructs exactly how every loan, payment and case ran, from records the bank already keeps. This page shows the mechanism behind that claim, using illustrative banking examples.</p>
+        <p class="hw-back-line"><a class="lp-link" href="/">← Back to the overview</a></p>
+      </div>
+      <figure class="hw-figure">
+        <svg aria-label="One loan execution: application to KYC, two parallel checks that split and merge at underwriting, an income re-verification loop from approval back to underwriting, then approval and funding." role="img" viewbox="0 0 510 430">
+<defs><lineargradient id="loanBg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#eef7fa"></stop><stop offset="1" stop-color="#f3effb"></stop></lineargradient><marker id="loanForward" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#7653a7" stroke-width="1.5"></path></marker><marker id="loanReturn" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#d18a3d" stroke-width="1.5"></path></marker></defs>
+<rect fill="url(#loanBg)" height="430" rx="18" width="510"></rect>
+<text fill="#325773" font-size="13" font-weight="800" x="24" y="34">WHAT YOUR BANKING SYSTEMS RECORD</text>
+<g fill="white" stroke="#d5e4ee"><rect height="51" rx="9" width="146" x="19" y="49"></rect><rect height="51" rx="9" width="146" x="182" y="49"></rect><rect height="51" rx="9" width="146" x="345" y="49"></rect></g>
+<g fill="#21445d" font-size="12" font-weight="700" text-anchor="middle"><text x="92" y="70">Loan origination</text><text font-size="10" font-weight="400" x="92" y="86">Applications · decisions</text><text x="255" y="70">Core banking</text><text font-size="10" font-weight="400" x="255" y="86">Accounts · postings</text><text x="418" y="70">Payments &amp; cases</text><text font-size="10" font-weight="400" x="418" y="86">Transactions · reviews</text></g>
+<path d="M92 100 V123 H255 V148 M255 100 V148 M418 100 V123 H255" fill="none" stroke="#7ca8b0" stroke-width="2"></path>
+<rect fill="#183a5b" height="57" rx="14" width="320" x="95" y="148"></rect><text fill="white" font-size="14" font-weight="800" text-anchor="middle" x="255" y="172">DETERMINISTIC RECONSTRUCTION</text><text fill="#bde6dd" font-size="11" text-anchor="middle" x="255" y="190">Events · relationships · context · time</text>
+<path d="M255 205 V231" stroke="#327d86" stroke-width="2.5"></path><path d="M249 225 L255 235 L261 225" fill="none" stroke="#327d86" stroke-width="2.5"></path>
+<text fill="#325773" font-size="12" font-weight="800" x="24" y="257">WHAT ACTUALLY HAPPENED · LOAN 10842</text>
+<path d="M55 340 H455" fill="none" stroke="#8da8ba" stroke-linecap="round" stroke-width="4"></path>
+<path d="M155 340 Q205 280 255 340" fill="none" marker-end="url(#loanForward)" stroke="#7653a7" stroke-linecap="round" stroke-width="3"></path>
+<path d="M355 340 Q310 288 255 340" fill="none" marker-end="url(#loanReturn)" stroke="#d18a3d" stroke-linecap="round" stroke-width="3"></path>
+<text fill="#7653a7" font-size="11" font-weight="700" text-anchor="middle" x="204" y="293">parallel checks</text>
+<text fill="#a76d29" font-size="11" font-weight="700" text-anchor="middle" x="335" y="290">income re-verified</text>
+<g fill="white" stroke="#237f77" stroke-width="3"><circle cx="55" cy="340" r="13"></circle><circle cx="155" cy="340" r="13"></circle><circle cx="255" cy="340" r="13"></circle><circle cx="355" cy="340" r="13"></circle><circle cx="455" cy="340" r="13"></circle></g>
+<g fill="#294a64" font-size="11" font-weight="700" text-anchor="middle"><text x="55" y="373">Application</text><text x="155" y="373">KYC</text><text x="255" y="373">Underwriting</text><text x="355" y="373">Approval</text><text x="455" y="373">Funded</text></g>
+<!-- Primary transaction indicator follows the straight branch, reverses along the amber rework curve, and then completes. -->
+<circle fill="#087c70" r="7" stroke="white" stroke-width="1.5"><animatemotion calcmode="linear" dur="12s" keypoints="0;0.156;0.312;0.312;0.469;0.688;0.844;1;1" keytimes="0;0.1667;0.3333;0.375;0.4583;0.625;0.7917;0.875;1" path="M55 340 H155 H255 H355 Q310 288 255 340 H355 H455" repeatcount="indefinite"></animatemotion><animate attributename="opacity" dur="12s" keytimes="0;0.15;0.33;0.45;0.63;0.79;0.875;0.94;0.97;1" repeatcount="indefinite" values="1;1;1;1;1;1;1;1;0;0"></animate></circle>
+<!-- The second indicator appears only during the parallel check, then merges at Underwriting. -->
+<circle fill="#7653a7" r="6.5" stroke="white" stroke-width="1.5"><animatemotion calcmode="linear" dur="12s" keypoints="0;0;1;1" keytimes="0;0.1667;0.3333;1" path="M155 340 Q205 280 255 340" repeatcount="indefinite"></animatemotion><animate attributename="opacity" calcmode="discrete" dur="12s" keytimes="0;0.1667;0.3333" repeatcount="indefinite" values="0;1;0"></animate></circle>
+<text fill="#527085" font-size="11" text-anchor="middle" x="255" y="411">Every step tied to a source record you can open</text>
+</svg>
+        <figcaption>Illustration · one loan, reconstructed from the systems it touched</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 1. Actual paths -->
+  <section class="lp-section hw-paths">
+    <div class="lp-shell">
+      <p class="lp-eyebrow">The execution reality</p>
+      <h2 class="lp-h2">One expected process. <span class="hw-accent">Many actual paths.</span></h2>
+      <p class="lp-lead">A transaction can follow the approved process, or take a different route through repeated validation, waiting, manual review and exceptions. The outcome looks the same. The cost and the risk do not.</p>
+      <figure class="hw-figure hw-wide" role="img" aria-label="Illustrative account-opening transaction: one expected path and three observed execution variants including rework and manual approval">
+        <svg viewbox="0 0 1120 510" xmlns="http://www.w3.org/2000/svg"><defs><lineargradient id="variantBg" x2="1" y2="1"><stop stop-color="#f6fafc"></stop><stop offset="1" stop-color="#edf5f2"></stop></lineargradient><marker id="arrV" markerheight="7" markerwidth="7" orient="auto" refx="6" refy="3.5"><path d="M0 0L7 3.5L0 7Z" fill="#66859a"></path></marker></defs><rect fill="url(#variantBg)" height="508" rx="23" stroke="#d5e3eb" width="1118" x="1" y="1"></rect><rect fill="#fff" height="156" rx="17" stroke="#d8e5eb" width="1064" x="28" y="23"></rect><text fill="#637c91" font-size="14" font-weight="800" letter-spacing="2" x="50" y="52">EXPECTED EXECUTION</text><text fill="#28415b" font-size="16" font-weight="700" x="50" y="76">Illustrative account-opening transaction</text><path d="M95 119H1015" marker-end="url(#arrV)" stroke="#b8cfdd" stroke-width="5"></path><g fill="#367da7" stroke="#fff" stroke-width="3"><circle cx="110" cy="119" r="13"></circle><circle cx="325" cy="119" r="13"></circle><circle cx="540" cy="119" r="13"></circle><circle cx="755" cy="119" r="13"></circle><circle cx="995" cy="119" r="13"></circle></g><g fill="#334f66" font-size="16" font-weight="700" text-anchor="middle"><text x="110" y="151">Request</text><text x="325" y="151">Validation</text><text x="540" y="151">Review</text><text x="755" y="151">Approval</text><text x="995" y="151">Complete</text></g><text fill="#637c91" font-size="14" font-weight="800" letter-spacing="2" x="50" y="214">ACTUAL EXECUTION VARIANTS</text><text fill="#5c7488" font-size="15" x="50" y="239">Same transaction type. Different journeys through the bank.</text><g fill="#314b63" font-size="15" font-weight="700"><text x="50" y="288">Standard</text><text x="50" y="360">Rework</text><text x="50" y="432">Human review</text></g><g fill="none" stroke-linecap="round" stroke-width="5"><path d="M205 282H1005" stroke="#248c78"></path><path d="M205 354H1005" opacity=".4" stroke="#7153c5"></path><path d="M205 426H1005" opacity=".4" stroke="#d4834d"></path><path d="M205 282H1005" id="varStandard" stroke="transparent"></path><path d="M205 354H530 V315 H350 V354 H1005" id="varRework" stroke="#7153c5"></path><path d="M205 426H740 V464 H830 V426 H1005" id="varHuman" stroke="#d4834d"></path></g><g fill="#fff" stroke-width="3"><circle cx="205" cy="282" r="9" stroke="#248c78"></circle><circle cx="1005" cy="282" r="9" stroke="#248c78"></circle><circle cx="530" cy="354" r="9" stroke="#7153c5"></circle><circle cx="1005" cy="354" r="9" stroke="#7153c5"></circle><circle cx="740" cy="426" r="9" stroke="#d4834d"></circle><circle cx="1005" cy="426" r="9" stroke="#d4834d"></circle></g><rect fill="#eee8fa" height="29" rx="12" width="145" x="370" y="294"></rect><text fill="#6445b3" font-size="14" font-weight="700" text-anchor="middle" x="442" y="314">Repeat validation</text><rect fill="#fff0e4" height="28" rx="12" width="120" x="747" y="463"></rect><text fill="#a85a2e" font-size="13" font-weight="700" text-anchor="middle" x="807" y="482">Manual approval</text><g fill="#fff" stroke-width="3"><circle r="9" stroke="#248c78"><animatemotion dur="9s" path="M205 282H1005" repeatcount="indefinite"></animatemotion></circle><circle r="9" stroke="#7153c5"><animatemotion calcmode="linear" dur="13s" keypoints="0;.37;.43;.59;.67;1" keytimes="0;.32;.40;.55;.63;1" path="M205 354H530 V315 H350 V354 H1005" repeatcount="indefinite"></animatemotion></circle><circle r="9" stroke="#d4834d"><animatemotion calcmode="linear" dur="15s" keypoints="0;.55;.60;.60;.7;1" keytimes="0;.4;.46;.62;.68;1" path="M205 426H740 V464 H830 V426 H1005" repeatcount="indefinite"></animatemotion></circle></g></svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 2. Estimated vs reconstructed -->
+  <section class="lp-section hw-compare">
+    <div class="lp-shell">
+      <p class="lp-eyebrow">A different starting point</p>
+      <h2 class="lp-h2">The maps look alike. The foundations don't.</h2>
+      <div class="hw-questions">
+        <div><span>Other tools ask</span><strong>What does the process usually look like?</strong></div>
+        <div><span>RE-ViVE answers</span><strong>What happened to this loan, this payment, this customer, and why?</strong></div>
+      </div>
+      <div class="hw-columns">
+        <div class="hw-col">
+          <h3>Discovery-first (statistical)</h3>
+          <ol>
+            <li>Start from an event log and one chosen case perspective</li>
+            <li>Discover, abstract and simplify a process model</li>
+            <li>Explain the paths and exceptions around that model</li>
+          </ol>
+          <p>Aggregation and filtering can hide low-frequency behavior and the links between objects, which is exactly where banking risk sits.</p>
+        </div>
+        <div class="hw-col hw-col-us">
+          <h3>Execution-first (RE-ViVE)</h3>
+          <ol>
+            <li>Start from operational events, identities and relationships</li>
+            <li>Deterministically reconstruct each execution</li>
+            <li>Show paths, exceptions and context you can verify</li>
+          </ol>
+          <p>No predefined ideal process and no statistically representative path. The map is the result, not the assumption.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Why it is hard to copy -->
+  <section class="lp-section hw-hard">
+    <div class="lp-shell">
+      <p class="lp-eyebrow">Why this is hard to copy</p>
+      <h2 class="lp-h2">Four problems the category still struggles with. Solved on one foundation.</h2>
+      <div class="hw-grid4">
+        <div class="hw-item">
+          <p class="hw-num">01 · Concurrency</p>
+          <h3>Parallel work is not rework.</h3>
+          <p>Sanctions screening and ID verification can finish in either order. Other approaches can draw that as a loop. RE-ViVE recognizes them as peers.</p>
+        </div>
+        <div class="hw-item">
+          <p class="hw-num">02 · Context</p>
+          <h3>Any business view, same evidence.</h3>
+          <p>Product, channel, branch, risk tier, relationship manager, policy version. Dozens of dimensions without rebuilding the execution for each view.</p>
+        </div>
+        <div class="hw-item">
+          <p class="hw-num">03 · Change</p>
+          <h3>When the workflow changes, the view does too.</h3>
+          <p>A new fraud check added in Q2 shows up in Q2, not as noise across the year. New and retired steps compare cleanly over time.</p>
+        </div>
+        <div class="hw-item">
+          <p class="hw-num">04 · AI agents</p>
+          <h3>Agents tied to business outcomes.</h3>
+          <p>Agent runs, tool calls and retries link to the loans, cases and payments they touched, so an extraction agent's retries trace to the disputes that missed their deadline.</p>
+        </div>
+      </div>
+      <div class="hw-minis">
+        <figure><svg aria-label="One start splits into parallel KYC and credit checks before joining for approval" role="img" viewbox="0 0 270 125"><g fill="none" stroke="#368c87" stroke-width="3"><path d="M24 63 H65 L91 31 H172 L198 63 H244"></path><path d="M65 63 L91 96 H172 L198 63"></path></g><g fill="#fff" stroke="#167f79" stroke-width="2"><circle cx="24" cy="63" r="8"></circle><circle cx="244" cy="63" r="8"></circle><rect height="28" rx="7" width="83" x="90" y="17"></rect><rect height="28" rx="7" width="83" x="90" y="82"></rect></g><g fill="#23465d" font-size="10" font-weight="700" text-anchor="middle"><text x="131" y="35">KYC</text><text x="131" y="100">Credit</text><text x="24" y="82">Start</text><text x="244" y="82">Approve</text></g></svg><figcaption>Independent checks, not a false rework loop</figcaption></figure>
+        <figure><svg aria-label="One common execution line viewed through three business dimensions" role="img" viewbox="0 0 270 125"><path d="M20 60 H250" stroke="#b3c8d8" stroke-width="4"></path><g fill="#167f79"><circle cx="38" cy="60" r="9"></circle><circle cx="105" cy="60" r="9"></circle><circle cx="172" cy="60" r="9"></circle><circle cx="239" cy="60" r="9"></circle></g><g font-size="11" font-weight="700" text-anchor="middle"><rect fill="#e6f3ef" height="26" rx="13" width="77" x="8" y="6"></rect><text fill="#167f79" x="46" y="23">Product</text><rect fill="#e9effa" height="26" rx="13" width="77" x="96" y="6"></rect><text fill="#3276b4" x="134" y="23">Channel</text><rect fill="#efe9f9" height="26" rx="13" width="77" x="184" y="6"></rect><text fill="#7653a7" x="222" y="23">Risk tier</text></g><path d="M46 32 V48 M134 32 V48 M222 32 V48" stroke="#9eb8c9" stroke-dasharray="3 3"></path></svg><figcaption>Different business views of the same executions</figcaption></figure>
+        <figure><svg aria-label="Earlier period has three activities and later period adds a fraud review" role="img" viewbox="0 0 270 125"><g fill="none" stroke="#b3c8d8" stroke-width="3"><path d="M25 37 H245"></path><path d="M25 91 H245"></path></g><g fill="#167f79"><circle cx="35" cy="37" r="8"></circle><circle cx="135" cy="37" r="8"></circle><circle cx="235" cy="37" r="8"></circle><circle cx="35" cy="91" r="8"></circle><circle cx="105" cy="91" r="8"></circle><circle cx="235" cy="91" r="8"></circle></g><circle cx="172" cy="91" fill="#db9c45" r="9"></circle><g fill="#284963" font-size="10" font-weight="700"><text x="10" y="17">Q1</text><text x="10" y="72">Q2</text><text x="149" y="114">New fraud check</text></g></svg><figcaption>New steps appear when the process changes</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Evidence -->
+  <section class="lp-section hw-evidence">
+    <div class="lp-shell hw-split">
+      <div>
+        <p class="lp-eyebrow">Built for scrutiny</p>
+        <h2 class="lp-h2">Every path counted. When the examiner asks, open the record.</h2>
+        <p class="lp-lead">Rare paths are where the risk, the cost and the complaints live. RE-ViVE keeps the whole in-scope population, reconciles it against the source, and lets a team go from a pattern to a single request in loan origination, core banking, payments or case management.</p>
+        <div class="hw-recon" aria-label="Illustrative population reconciliation: 100,000 in scope, 100,000 accounted for">
+          <div class="hw-recon-head"><span>In scope <strong>100,000</strong></span><span>Accounted for <strong>100,000</strong></span></div>
+          <div class="hw-recon-bar"><i style="width:72%"></i><i style="width:17%"></i><i style="width:8%"></i><i style="width:3%"></i></div>
+          <div class="hw-recon-keys"><span>72% standard</span><span>17% rework</span><span>8% exception</span><span>3% other</span></div>
+          <p class="hw-cap">Illustration · population reconciliation</p>
+        </div>
+      </div>
+      <figure class="hw-figure">
+        <svg aria-label="Banking transaction and execution linked to records in loan origination, core banking, and payment or case management systems" role="img" viewbox="0 0 500 285"><rect fill="#f3f8fc" height="285" rx="16" width="500"></rect><g fill="white" stroke="#cbdde8" stroke-width="1.5"><rect height="64" rx="10" width="144" x="19" y="27"></rect><rect height="64" rx="10" width="144" x="185" y="27"></rect><rect height="64" rx="10" width="130" x="351" y="27"></rect></g><g fill="#24445d" font-size="12" font-weight="700" text-anchor="middle"><text x="91" y="49">Loan 10842</text><text font-size="10" font-weight="400" x="91" y="69">Business transaction</text><text x="257" y="49">Execution path</text><text font-size="10" font-weight="400" x="257" y="69">6 observed steps</text><text x="416" y="49">Exception</text><text font-size="10" font-weight="400" x="416" y="69">Income re-verified</text></g><path d="M91 91 V129 H250 M257 91 V129 M416 91 V129 H257" fill="none" stroke="#5a95a6" stroke-width="2.5"></path><rect fill="#1c4b68" height="49" rx="11" width="280" x="110" y="129"></rect><text fill="white" font-size="13" font-weight="700" text-anchor="middle" x="250" y="149">RECONSTRUCTED EXECUTION</text><text fill="#c2e7e5" font-size="10" text-anchor="middle" x="250" y="166">Every step traceable to operational evidence</text><path d="M250 178 V206 M75 206 H425 M75 206 V224 M250 206 V224 M425 206 V224" fill="none" stroke="#6b9cac" stroke-width="2"></path><g fill="white" stroke="#a6c7d4"><rect height="40" rx="8" width="126" x="12" y="224"></rect><rect height="40" rx="8" width="126" x="187" y="224"></rect><rect height="40" rx="8" width="126" x="362" y="224"></rect></g><g fill="#294d65" font-size="11" font-weight="700" text-anchor="middle"><text x="75" y="242">Loan origination</text><text font-size="9" font-weight="400" x="75" y="254">Decision event</text><text x="250" y="242">Core banking</text><text font-size="9" font-weight="400" x="250" y="254">Funding posting</text><text x="425" y="242">Payments / cases</text><text font-size="9" font-weight="400" x="425" y="254">Review event</text></g></svg>
+        <figcaption>Illustration · from the insight back to the source system</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 5. Fits the bank as it is -->
+  <section class="lp-section hw-deploy">
+    <div class="lp-shell hw-split">
+      <figure class="hw-figure" role="img" aria-label="People, systems, automation and AI records flow into RE-ViVE and produce an execution map showing actual paths, rework and exceptions">
+        <svg viewbox="0 0 730 435" xmlns="http://www.w3.org/2000/svg"><defs><lineargradient id="pbg" x2="1" y2="1"><stop stop-color="#eff7fa"></stop><stop offset="1" stop-color="#f1edfa"></stop></lineargradient></defs><rect fill="url(#pbg)" height="435" rx="20" width="730"></rect><text fill="#526b84" font-size="13" font-weight="800" letter-spacing="1.5" x="26" y="34">OPERATIONAL EVIDENCE</text><text fill="#526b84" font-size="13" font-weight="800" letter-spacing="1.5" x="505" y="34">WHAT RE-ViVE REVEALS</text><g fill="#fff" stroke="#cbdce8" stroke-width="1.5"><rect height="50" rx="12" width="152" x="22" y="67"></rect><rect height="50" rx="12" width="152" x="22" y="139"></rect><rect height="50" rx="12" width="152" x="22" y="211"></rect><rect height="50" rx="12" width="152" x="22" y="283"></rect></g><g fill="#29415b" font-size="17" font-weight="700" text-anchor="middle"><text x="98" y="99">People</text><text x="98" y="171">Systems</text><text x="98" y="243">Automation</text><text x="98" y="315">AI agents</text></g><g fill="none" stroke-width="3"><path d="M174 92 C226 92 224 184 276 196" stroke="#7255bd"></path><path d="M174 164 C230 164 229 196 276 196" stroke="#397fa9"></path><path d="M174 236 C230 236 229 196 276 196" stroke="#238b78"></path><path d="M174 308 C226 308 224 209 276 196" stroke="#d57b42"></path></g><circle cx="342" cy="196" fill="#fff" r="77" stroke="#c9d9e7" stroke-width="3"></circle><circle cx="342" cy="196" fill="#f5f3fb" r="68"></circle><image height="91" href="/images/revive-logo-default-240.webp" preserveaspectratio="xMidYMid meet" width="106" x="289" y="147"/><text fill="#536b85" font-size="12" font-weight="700" text-anchor="middle" x="342" y="260">EXECUTION INTELLIGENCE</text><path d="M420 196H475" fill="none" stroke="#3688a6" stroke-width="4"></path><circle cx="470" cy="196" fill="#318d9c" r="7"><animate attributename="opacity" dur="2.6s" repeatcount="indefinite" values=".35;1;.35"></animate></circle><rect fill="#fff" height="275" rx="17" stroke="#cadce8" stroke-width="2" width="217" x="489" y="64"></rect><text fill="#263e58" font-size="16" font-weight="800" x="507" y="93">Actual execution paths</text><path d="M514 153H682" stroke="#c8dbe4" stroke-linecap="round" stroke-width="5"></path><path d="M564 153V121H615V153" fill="none" stroke="#7255bd" stroke-width="3"></path><g fill="#fff" stroke-width="3"><circle cx="518" cy="153" r="9" stroke="#3480ac"></circle><circle cx="564" cy="153" r="9" stroke="#3480ac"></circle><circle cx="615" cy="153" r="9" stroke="#7255bd"></circle><circle cx="680" cy="153" r="9" stroke="#268c79"></circle></g><rect fill="#e8e1f8" height="37" rx="10" width="85" x="515" y="196"></rect><text fill="#6246ad" font-size="14" font-weight="700" text-anchor="middle" x="558" y="219">Rework</text><rect fill="#e2eff7" height="37" rx="10" width="82" x="610" y="196"></rect><text fill="#246d9b" font-size="14" font-weight="700" text-anchor="middle" x="651" y="219">Waiting</text><rect fill="#e5f3ed" height="41" rx="10" width="177" x="515" y="245"></rect><text fill="#247f6c" font-size="14" font-weight="700" text-anchor="middle" x="603" y="271">Exceptions &amp; controls</text><circle fill="#7255bd" r="6"><animatemotion dur="8s" path="M518 153 H564 V121 H615 V153 H680" repeatcount="indefinite"></animatemotion></circle><text fill="#526b84" font-size="15" font-weight="700" text-anchor="middle" x="365" y="388">Existing records → deterministic reconstruction → execution insight</text></svg>
+      </figure>
+      <div>
+        <p class="lp-eyebrow">Practical deployment</p>
+        <h2 class="lp-h2">Fits the bank as it is.</h2>
+        <dl class="hw-faq">
+          <dt>What does the bank need to do?</dt>
+          <dd>Provide read-only access to the relevant records. RE-ViVE handles the reconstruction and the analysis.</dd>
+          <dt>Will it work with what the bank already runs?</dt>
+          <dd>Core banking, CRM, workflow platforms, databases, files and custom applications, with no new operational system.</dd>
+          <dt>Where does the data sit?</dt>
+          <dd>On-premises, private cloud or the bank's own cloud. Nothing is written back to source systems.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Close -->
+  <section class="lp-section hw-close">
+    <div class="lp-shell lp-cta">
+      <h3>See it on a live demo, or on one of your own workflows.</h3>
+      <div class="lp-cta-row">
+        <a class="lp-btn" href={CONTACT}>Request a demo</a>
+        <a class="lp-link" href="/">← Back to the overview</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</Layout>
