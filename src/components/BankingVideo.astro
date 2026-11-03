@@ -1,0 +1,44 @@
+---
+import videos from '../data/banking-videos.json';
+const { index = 0 } = Astro.props;
+const video = videos[index];
+---
+<figure class="bv-player" data-banking-video data-laptop={video.laptop} data-phone={video.phone} data-poster={video.poster} data-phone-poster={video.phonePoster}>
+  <div class="bv-frame">
+    <video controls playsinline preload="none" poster={video.poster} aria-label={`${video.title} — ${video.duration}`}>
+      <source src={video.laptop} type="video/mp4" />
+      <track kind="captions" src={video.captions} srclang="en" label="English" />
+      <p>Your browser cannot play this video. <a href={video.laptop}>Open the video</a> or read the transcript below.</p>
+    </video>
+  </div>
+  <figcaption><span>{video.kind}</span><span>{video.duration} · English captions</span></figcaption>
+  <details class="bv-transcript"><summary>Read the video transcript</summary><div>{video.transcript.map(text => <p>{text}</p>)}</div></details>
+</figure>
+<script>
+  // Load only the appropriate export; never autoplay or interrupt a started film.
+  document.querySelectorAll<HTMLElement>('[data-banking-video]').forEach(player => {
+    const video = player.querySelector('video');
+    if (!video || player.dataset.ready) return;
+    player.dataset.ready = 'true';
+    const portraitPhone = window.matchMedia('(max-width: 640px) and (orientation: portrait)');
+    let started = false;
+    const chooseSource = () => {
+      if (started) return;
+      const src = portraitPhone.matches ? player.dataset.phone : player.dataset.laptop;
+      const poster = portraitPhone.matches ? player.dataset.phonePoster : player.dataset.poster;
+      if (src && video.getAttribute('src') !== src) {
+        video.src = src;
+        if (poster) video.poster = poster;
+        video.load();
+      }
+    };
+    video.addEventListener('play', () => {
+      started = true;
+      document.querySelectorAll('video').forEach(other => {
+        if (other !== video) other.pause();
+      });
+    });
+    portraitPhone.addEventListener('change', chooseSource);
+    chooseSource();
+  });
+</script>

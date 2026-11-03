@@ -7,8 +7,11 @@ const { current = "" } = Astro.props;
 const NAV = [
   { label: "Banking Home", href: "/" },
   { label: "Banking Solutions", href: "/workflows", sub: [
+    { heading: "Explore Banking Solutions" },
     { label: "Banking Workflows", href: "/workflows" },
+    { label: "Business Customer Onboarding", href: "/banking-onboarding", activeFor: ["/start-with-one-journey"] },
     { label: "How It Works", href: "/how-it-works" },
+    { heading: "By Bank Type" },
     { label: "Community Banks", href: "/banking-community-banks" },
     { label: "Regional & Mid-size Banks", href: "/banking-regional-banks" },
     { label: "Large & Global Banks", href: "/banking-large-banks" },
@@ -30,7 +33,8 @@ const NAV = [
 ];
 
 const isCurrent = (href) => href === current;
-const parentActive = (item) => isCurrent(item.href) || (item.sub ?? []).some((s) => isCurrent(s.href));
+const subActive = (item) => isCurrent(item.href) || (item.activeFor ?? []).includes(current);
+const parentActive = (item) => isCurrent(item.href) || (item.sub ?? []).some(subActive);
 const cls = (...parts) => parts.filter(Boolean).join(" ") || undefined;
 ---
 <header class="rt-header">
@@ -42,7 +46,7 @@ const cls = (...parts) => parts.filter(Boolean).join(" ") || undefined;
 <div class="rt-item"><a aria-current={isCurrent(item.href) ? "page" : undefined} class={cls(parentActive(item) && "active", "rt-parent")} href={item.href}>{item.label}</a><div class="rt-sub">{item.sub.map((s) => s.heading ? (
 <span class="rt-sub-head">{s.heading}</span>
 ) : (
-<a aria-current={isCurrent(s.href) ? "page" : undefined} class={cls(isCurrent(s.href) && "active")} href={s.href}>{s.label}</a>
+<a aria-current={isCurrent(s.href) ? "page" : undefined} class={cls(subActive(s) && "active")} href={s.href}>{s.label}</a>
 ))}</div></div>
 ) : (
 <a aria-current={isCurrent(item.href) ? "page" : undefined} class={cls(isCurrent(item.href) && "active")} href={item.href}>{item.label}</a>

@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BankingVideo from '../components/BankingVideo.astro';
+import BankingContact from '../components/BankingContact.astro';
+---
+<Layout title="Start with One Banking Journey | RE-ViVE" description="Start with existing bank records, read-only source access and an agreed scope. Understand the prerequisites for an initial execution view, then decide which service workflows to explore next." current="/start-with-one-journey">
+<Fragment slot="head">
+  <link href="/images/favicon.svg" rel="icon" type="image/svg+xml" />
+  <link href="/assets/css/chrome.css" rel="stylesheet" />
+  <link href="/assets/css/banking-nav-v4.css" rel="stylesheet" />
+  <link href="/assets/css/banking-production-v7.css" rel="stylesheet" />
+  <link href="/assets/css/landing.css" rel="stylesheet" />
+  <link href="/assets/css/banking-videos.css" rel="stylesheet" />
+
+<link rel="canonical" href="https://revivetoday.com/start-with-one-journey" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Start with one banking journey | RE-ViVE" />
+<meta property="og:description" content="Your records, an agreed scope and a practical starting point for execution intelligence." />
+<meta property="og:url" content="https://revivetoday.com/start-with-one-journey" />
+<meta property="og:image" content="https://revivetoday.com/videos/banking/start-with-one-journey-laptop.webp" />
+</Fragment>
+<main id="main" class="bv-page">
+  <section class="bv-start-hero bv-shell"><p class="bv-eyebrow">A practical starting point</p><h1>Start with one journey.<br/><span>Decide with evidence.</span></h1><p class="bv-lead">You do not need to start with every workflow in the bank. Choose a customer journey or service workflow that matters, agree the records in scope and establish a usable view of how the work actually runs.</p><div class="bv-actions"><a class="bv-btn" href="#getting-started-video">Watch how to start ↓</a><a class="bv-text-link" href="#request-walkthrough">Discuss a starting scope →</a></div></section>
+  <section class="bv-section bv-soft" id="getting-started-video"><div class="bv-shell"><BankingVideo index={2}/></div></section>
+  <section class="bv-section"><div class="bv-shell"><p class="bv-eyebrow">From records to a decision</p><h2 class="bv-wide-heading">A clear scope. A ready environment.<br/>Then the first execution view.</h2><ol class="bv-start-steps"><li><span>01</span><div><h3>Choose the question and the records.</h3><p>Agree the journey, service workflows, source systems and business meaning. Your team helps confirm the context and data access.</p></div></li><li><span>02</span><div><h3>Connect sources and establish the environment.</h3><p>Use read-only source access and an agreed deployment environment. Data preparation, access approvals and environment setup are prerequisites.</p></div></li><li><span>03</span><div><h3>Explore the initial view.</h3><p>About ten business days after usable sources and the environment are ready, examine the reconstructed execution. Confirm findings with your team and decide what to investigate.</p></div></li><li><span>04</span><div><h3>Add the next service workflow.</h3><p>Within business onboarding, account setup, ACH, wires and entitlements contribute to customer readiness. Relevant connected records can carry over; each added workflow has its own scope and sources.</p></div></li></ol><p class="bv-small">Timing depends on the agreed starting scope and the readiness of source access, data and the environment.</p></div></section>
+  <section class="bv-section bv-soft"><div class="bv-shell bv-faq"><p class="bv-eyebrow">Questions before we begin</p><h2>Fit the engagement<br/>to the bank.</h2><details><summary>Is Business Account Setup the whole onboarding process?</summary><p>No. It is one service workflow within B2B customer onboarding. Other services, such as ACH setup, wire setup and user entitlements, also contribute to getting the customer operating.</p></details><details><summary>Where does the data sit?</summary><p>Deployment is agreed with the bank: on its servers, in an agreed hosted environment or in the cloud. Source access remains read-only, with no writes back to operational systems.</p></details><details><summary>What happens when work changes?</summary><p>Maps reflect the connected operational records as those records are refreshed. A new step can appear when its execution is recorded. The bank retains responsibility for policy and control design.</p></details><details><summary>How does What-If help prioritize a change?</summary><p>What-If explores the estimated effect of a change under the scenario's assumptions. The bank evaluates the options and validates real outcomes after implementation.</p></details><p><a class="bv-text-link" href="/banking-onboarding">See the customer story and product walkthrough →</a></p></div></section>
+  <BankingContact/>
+</main>
+</Layout>

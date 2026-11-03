@@ -4,6 +4,7 @@
 // Diagrams are reused from the previous home page and the Why RE-ViVE page.
 // Shared site header and footer; page styles in /assets/css/landing.css (shared with the landing page).
 import Layout from "../layouts/Layout.astro";
+import BankingVideo from "../components/BankingVideo.astro";
 
 const CONTACT = "https://re-vive.com/company/contact";
 ---
@@ -15,6 +16,7 @@ const CONTACT = "https://re-vive.com/company/contact";
 <link href="/assets/css/banking-nav-v4.css" rel="stylesheet"/>
 <link href="/assets/css/banking-production-v7.css" rel="stylesheet"/>
 <link href="/assets/css/landing.css" rel="stylesheet"/>
+<link href="/assets/css/banking-videos.css" rel="stylesheet"/>
 </Fragment>
 
 
@@ -25,8 +27,8 @@ const CONTACT = "https://re-vive.com/company/contact";
     <div class="lp-shell hw-split">
       <div>
         <p class="lp-eyebrow">How it works</p>
-        <h1 class="lp-h2 hw-h1">How RE-ViVE sees what other tools can't.</h1>
-        <p class="lp-lead">RE-ViVE reconstructs exactly how every loan, payment and case ran, from records the bank already keeps. This page shows the mechanism behind that claim, using illustrative banking examples.</p>
+        <h1 class="lp-h2 hw-h1">From bank records to a view of actual execution.</h1>
+        <p class="lp-lead">RE-ViVE connects relevant operational records to reconstruct in-scope execution. Explore a banking product walkthrough, then the mechanism behind it through illustrative examples.</p>
         <p class="hw-back-line"><a class="lp-link" href="/">← Back to the overview</a></p>
       </div>
       <figure class="hw-figure">
@@ -58,6 +60,7 @@ const CONTACT = "https://re-vive.com/company/contact";
     </div>
   </section>
 
+  <section class="bv-section bv-soft" id="banking-walkthrough"><div class="bv-shell"><div class="bv-section-heading"><div><p class="bv-eyebrow">Inside the product</p><h2>Investigate a service workflow<br/>within business onboarding.</h2></div><p>Move from Overview to a process map, use Influencers on an activity, compare groups or periods and open the events of one request.</p></div><BankingVideo index={1}/><p class="bv-small bv-scope-note">Business Account Setup is one service workflow, not the entire onboarding process. The demo contains populated records for Business Account Setup and EFT Processing. Elapsed time, associations and repeated events need investigation before conclusions are drawn.</p><div class="bv-actions"><a class="bv-text-link" href="/banking-onboarding#customer-story">See the customer context →</a><a class="bv-text-link" href="/start-with-one-journey">How to start with your own records →</a></div></div></section>
   <!-- 1. Actual paths -->
   <section class="lp-section hw-paths">
     <div class="lp-shell">
@@ -70,48 +73,18 @@ const CONTACT = "https://re-vive.com/company/contact";
     </div>
   </section>
 
-  <!-- 2. Estimated vs reconstructed -->
-  <section class="lp-section hw-compare">
-    <div class="lp-shell">
-      <p class="lp-eyebrow">A different starting point</p>
-      <h2 class="lp-h2">The maps look alike. The foundations don't.</h2>
-      <div class="hw-questions">
-        <div><span>Other tools ask</span><strong>What does the process usually look like?</strong></div>
-        <div><span>RE-ViVE answers</span><strong>What happened to this loan, this payment, this customer, and why?</strong></div>
-      </div>
-      <div class="hw-columns">
-        <div class="hw-col">
-          <h3>Discovery-first (statistical)</h3>
-          <ol>
-            <li>Start from an event log and one chosen case perspective</li>
-            <li>Discover, abstract and simplify a process model</li>
-            <li>Explain the paths and exceptions around that model</li>
-          </ol>
-          <p>Aggregation and filtering can hide low-frequency behavior and the links between objects, which is exactly where banking risk sits.</p>
-        </div>
-        <div class="hw-col hw-col-us">
-          <h3>Execution-first (RE-ViVE)</h3>
-          <ol>
-            <li>Start from operational events, identities and relationships</li>
-            <li>Deterministically reconstruct each execution</li>
-            <li>Show paths, exceptions and context you can verify</li>
-          </ol>
-          <p>No predefined ideal process and no statistically representative path. The map is the result, not the assumption.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section class="lp-section hw-compare"><div class="lp-shell"><p class="lp-eyebrow">An execution view from connected records</p><h2 class="lp-h2">Records. Relationships. Context.</h2><div class="hw-columns"><div class="hw-col"><h3>Connect the evidence.</h3><ol><li>Agree the operational sources and scope.</li><li>Link relevant events, identities and relationships.</li><li>Confirm the business meaning with the bank's team.</li></ol></div><div class="hw-col hw-col-us"><h3>Investigate actual execution.</h3><ol><li>Explore paths, timing and business dimensions.</li><li>Compare cohorts and periods.</li><li>Open the underlying request and decide what to investigate.</li></ol></div></div></div></section>
 
   <!-- 3. Why it is hard to copy -->
   <section class="lp-section hw-hard">
     <div class="lp-shell">
-      <p class="lp-eyebrow">Why this is hard to copy</p>
-      <h2 class="lp-h2">Four problems the category still struggles with. Solved on one foundation.</h2>
+      <p class="lp-eyebrow">One execution foundation</p>
+      <h2 class="lp-h2">Four capabilities for understanding execution.</h2>
       <div class="hw-grid4">
         <div class="hw-item">
           <p class="hw-num">01 · Concurrency</p>
           <h3>Parallel work is not rework.</h3>
-          <p>Sanctions screening and ID verification can finish in either order. Other approaches can draw that as a loop. RE-ViVE recognizes them as peers.</p>
+          <p>Sanctions screening and ID verification can finish in either order. Keep independent checks distinct from repeated work when examining actual execution.</p>
         </div>
         <div class="hw-item">
           <p class="hw-num">02 · Context</p>
@@ -121,7 +94,7 @@ const CONTACT = "https://re-vive.com/company/contact";
         <div class="hw-item">
           <p class="hw-num">03 · Change</p>
           <h3>When the workflow changes, the view does too.</h3>
-          <p>A new fraud check added in Q2 shows up in Q2, not as noise across the year. New and retired steps compare cleanly over time.</p>
+          <p>A new fraud check can appear when its execution is captured in the connected records. Compare periods to investigate how work has changed.</p>
         </div>
         <div class="hw-item">
           <p class="hw-num">04 · AI agents</p>
@@ -169,7 +142,7 @@ const CONTACT = "https://re-vive.com/company/contact";
         <h2 class="lp-h2">Fits the bank as it is.</h2>
         <dl class="hw-faq">
           <dt>What does the bank need to do?</dt>
-          <dd>Provide read-only access to the relevant records. RE-ViVE handles the reconstruction and the analysis.</dd>
+          <dd>Agree the scope, provide read-only access or extracts, and help confirm sources and business meaning. RE-ViVE reconstructs execution from those records.</dd>
           <dt>Will it work with what the bank already runs?</dt>
           <dd>Core banking, CRM, workflow platforms, databases, files and custom applications, with no new operational system.</dd>
           <dt>Where does the data sit?</dt>
@@ -182,9 +155,9 @@ const CONTACT = "https://re-vive.com/company/contact";
   <!-- Close -->
   <section class="lp-section hw-close">
     <div class="lp-shell lp-cta">
-      <h3>See it on a live demo, or on one of your own workflows.</h3>
+      <h3>Discuss a starting scope for your bank.</h3>
       <div class="lp-cta-row">
-        <a class="lp-btn" href={CONTACT}>Request a demo</a>
+        <a class="lp-btn" href="/start-with-one-journey#request-walkthrough">Request a banking walkthrough</a>
         <a class="lp-link" href="/">← Back to the overview</a>
       </div>
     </div>

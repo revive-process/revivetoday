@@ -4,11 +4,12 @@
 // Shared site header and footer (chrome.css + banking nav layers); page styles in /assets/css/landing.css.
 // The previous home page is kept in the backups folder next to site\.
 import Layout from "../layouts/Layout.astro";
+import BankingVideo from "../components/BankingVideo.astro";
 
 const CONTACT = "https://re-vive.com/company/contact";
 const EMAIL = "connect@revivetoday.com";
 ---
-<Layout title="RE-ViVE | Execution Intelligence for Banks" description="Banking processes are too complex and too regulated for statistical estimates. RE-ViVE deterministically reconstructs how every loan, payment and case actually ran, from records the bank already keeps, without asking how the process is supposed to work." current="/">
+<Layout title="RE-ViVE | Execution Intelligence for Banks" description="Execution Intelligence for banking: reconstruct in-scope work from connected operational records, investigate individual requests and evaluate improvements. Watch a business onboarding story and product walkthrough." current="/">
 <Fragment slot="head">
 <link href="/images/favicon.svg" rel="icon" type="image/svg+xml"/>
 <link as="font" crossorigin href="/fonts/inter-var-latin.woff2" rel="preload" type="font/woff2"/>
@@ -16,6 +17,7 @@ const EMAIL = "connect@revivetoday.com";
 <link href="/assets/css/banking-nav-v4.css" rel="stylesheet"/>
 <link href="/assets/css/banking-production-v7.css" rel="stylesheet"/>
 <link href="/assets/css/landing.css" rel="stylesheet"/>
+<link href="/assets/css/banking-videos.css" rel="stylesheet"/>
 </Fragment>
 
 
@@ -26,17 +28,17 @@ const EMAIL = "connect@revivetoday.com";
     <div class="lp-shell">
       <p class="lp-eyebrow">Why RE-ViVE for banks</p>
       <h1 class="lp-h1">Every loan. Every payment. Every case. <span>Exactly as it ran.</span></h1>
-      <p class="lp-lead">Banks can't run on estimates. Other tools infer the process from statistical models. RE-ViVE reconstructs exactly how every transaction ran, from records the bank already keeps, and never has to ask how the process is supposed to work.</p>
+      <p class="lp-lead">Banking work crosses systems, teams and controls. RE-ViVE reconstructs how in-scope work actually ran from connected operational records, so teams can investigate the evidence and decide what to improve.</p>
 
-      <p class="lp-only">What only RE-ViVE brings together</p>
+      <p class="lp-only">One execution foundation for banking</p>
       <div class="lp-pillars">
         <div class="lp-pillar">
-          <h3>Exact, not estimated</h3>
-          <p>Deterministic reconstruction, not statistical inference. Every figure traces back to a real transaction that an examiner can open.</p>
+          <h3>Traceable to the records</h3>
+          <p>Deterministic reconstruction links observed execution to the underlying records, so teams can investigate an individual request.</p>
         </div>
         <div class="lp-pillar">
-          <h3>Zero process interviews</h3>
-          <p>No workshops, process models or SOP mapping. The bank gives read-only access, and the process map emerges from the evidence.</p>
+          <h3>Start from existing records</h3>
+          <p>Agree the source scope and business meaning. Reconstruct actual execution without drawing each workflow map by hand.</p>
         </div>
         <div class="lp-pillar">
           <h3>Built for bank complexity</h3>
@@ -50,25 +52,28 @@ const EMAIL = "connect@revivetoday.com";
     </div>
   </section>
 
+
+  <section class="bv-section bv-home-story" id="onboarding-story"><div class="bv-shell bv-home-grid"><div><p class="bv-eyebrow">Business customer onboarding</p><h2>Opening the account is one milestone.<br/><span>Getting the customer operating is another.</span></h2><p>Accounts, ACH, wires and user access come together in one onboarding journey. See why completed tasks can still leave a business customer waiting.</p><div class="bv-actions"><a class="bv-text-link" href="/banking-onboarding">Explore the banking walkthrough →</a></div></div><BankingVideo index={0}/></div></section>
+
   <!-- 2. How effective (cost and time) -->
   <section class="lp-section lp-effect">
     <div class="lp-shell">
       <p class="lp-eyebrow">How effective</p>
-      <h2 class="lp-h2">Weeks, not quarters. Hours of the bank's time, not months.</h2>
-      <p class="lp-lead">A full view of how the bank really runs, in about two weeks, with no process modeling and no new operational system.</p>
+      <h2 class="lp-h2">An initial view. A focused starting point.</h2>
+      <p class="lp-lead">Start with an agreed journey and usable connected records. Build an initial execution view, then decide where to investigate or expand.</p>
 
       <div class="lp-stats">
         <div class="lp-stat">
           <strong>~10 days</strong>
-          <span>Business days from data access to the first execution view</span>
+          <span>Business days to an initial view after usable sources and environment setup are ready</span>
         </div>
         <div class="lp-stat">
           <strong>2–4 hrs</strong>
-          <span>Subject-matter time from the bank to establish context</span>
+          <span>Subject-matter time reported in prior bank engagements; effort depends on scope and sources</span>
         </div>
         <div class="lp-stat">
-          <strong>100+ <em>vs</em> 0</strong>
-          <span>Workflows reconstructed in a head-to-head, while the alternative had none completed after about three months on comparable data</span>
+          <strong>One journey</strong>
+          <span>Begin with a focused question, then add service workflows as relevant records and priorities are agreed</span>
         </div>
         <div class="lp-stat">
           <strong>~30%</strong>
@@ -76,7 +81,7 @@ const EMAIL = "connect@revivetoday.com";
         </div>
       </div>
 
-      <p class="lp-reach"><strong>Built in banking. Ready for every workflow and every AI agent.</strong> The same foundation covers onboarding, payments, lending, cards, compliance and capital markets, and extends to insurance, healthcare and the AI agents now entering these workflows.</p>
+      <p class="lp-reach"> <strong>Built in banking. A foundation for broader execution questions.</strong> The same foundation covers onboarding, payments, lending, cards, compliance and capital markets, and extends to insurance, healthcare and the AI agents now entering these workflows.</p>
     </div>
   </section>
 
@@ -110,9 +115,9 @@ const EMAIL = "connect@revivetoday.com";
       <p class="lp-note">Opportunities measured from each bank's own records. Clients are not named.</p>
 
       <div class="lp-cta">
-        <h3>See it on a live demo, or on one of your own workflows.</h3>
+        <h3>See the product. Discuss a journey that matters to your bank.</h3>
         <div class="lp-cta-row">
-          <a class="lp-btn" href={CONTACT}>Request a demo</a>
+          <a class="lp-btn" href="/banking-onboarding#request-walkthrough">Request a banking walkthrough</a>
           <a class="lp-link" href={"mailto:" + EMAIL}>{EMAIL}</a>
         </div>
       </div>

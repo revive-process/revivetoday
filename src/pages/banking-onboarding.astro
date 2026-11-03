@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BankingVideo from '../components/BankingVideo.astro';
+import BankingContact from '../components/BankingContact.astro';
+---
+<Layout title="Business Customer Onboarding | RE-ViVE for Banks" description="The account is open. Are all the customer's services ready? See how RE-ViVE connects onboarding records across systems, teams and controls, and trace the work down to a single request." current="/banking-onboarding">
+<Fragment slot="head">
+  <link href="/images/favicon.svg" rel="icon" type="image/svg+xml" />
+  <link href="/assets/css/chrome.css" rel="stylesheet" />
+  <link href="/assets/css/banking-nav-v4.css" rel="stylesheet" />
+  <link href="/assets/css/banking-production-v7.css" rel="stylesheet" />
+  <link href="/assets/css/landing.css" rel="stylesheet" />
+  <link href="/assets/css/banking-videos.css" rel="stylesheet" />
+
+<link rel="canonical" href="https://revivetoday.com/banking-onboarding" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Business customer onboarding | RE-ViVE" />
+<meta property="og:description" content="One onboarding journey. Multiple service workflows. Watch the customer story and banking product walkthrough." />
+<meta property="og:url" content="https://revivetoday.com/banking-onboarding" />
+<meta property="og:image" content="https://revivetoday.com/videos/banking/customer-onboarding-story-laptop.webp" />
+</Fragment>
+<main id="main" class="bv-page">
+  <section class="bv-hero bv-shell">
+    <div class="bv-hero-copy"><p class="bv-eyebrow">Execution Intelligence for banking</p><h1>The account is open.<br/><span>Is the customer ready?</span></h1><p class="bv-lead">A business customer needs accounts, ACH, wires and user access working together. Getting each task done can still leave the customer waiting.</p><div class="bv-actions"><a class="bv-btn" href="#customer-story">See the customer story <span aria-hidden="true">↓</span></a><a class="bv-text-link" href="#request-walkthrough">Request a walkthrough →</a></div></div>
+    <aside class="bv-journey" aria-label="Illustration: multiple service workflows contribute to one onboarding journey"><p class="bv-mini-label">ONE BUSINESS CUSTOMER</p><h2>One onboarding journey.<br/>Several services to make ready.</h2><ul><li><span class="bv-dot bv-dot-done"></span>Business account setup <small>Account opened</small></li><li><span class="bv-dot bv-dot-done"></span>ACH setup <small>Approval recorded</small></li><li><span class="bv-dot bv-dot-done"></span>Wire setup <small>Setup recorded</small></li><li class="bv-pending"><span class="bv-dot"></span>User entitlements <small>Activation pending</small></li></ul><p class="bv-journey-foot">Completed tasks. An unfinished customer journey.</p><p class="bv-small">Illustration · business customer onboarding</p></aside>
+  </section>
+  <nav class="bv-jump bv-shell" aria-label="Explore business onboarding"><a href="#customer-story"><b>01</b> The customer problem</a><a href="#product-walkthrough"><b>02</b> See the product</a><a href="#starting-point"><b>03</b> Start with one journey</a></nav>
+
+  <section class="bv-section bv-soft" id="customer-story"><div class="bv-shell"><div class="bv-section-heading"><div><p class="bv-eyebrow">The customer problem</p><h2>Completed tasks.<br/>An unfinished journey.</h2></div><p>The bank needs to serve more business needs, while the work crosses systems, teams and controls. Follow one illustrative treasury-services request to see why a local completion report can miss the customer's experience.</p></div><BankingVideo index={0}/><div class="bv-after-video"><p><strong>Business customer onboarding is the broader process.</strong> Account setup, ACH setup, wire setup and entitlements are service workflows within it.</p><a class="bv-text-link" href="#product-walkthrough">See how to investigate →</a></div></div></section>
+
+  <section class="bv-section" id="product-walkthrough"><div class="bv-shell"><div class="bv-section-heading"><div><p class="bv-eyebrow">See the product</p><h2>From the overall pattern<br/>to one customer's records.</h2></div><p>See Overview, drill into a time-based process map, investigate a step with Influencers, compare groups and open the events behind one request.</p></div><BankingVideo index={1}/><div class="bv-feature-grid"><article><span>Overview → Process map</span><h3>Follow the question.</h3><p>Drill from a chart into the relevant execution view, with the selected context carried through.</p></article><article><span>Time view → Influencers</span><h3>Focus the investigation.</h3><p>Select an activity and examine differences across the associated requests by city, segment or other dimensions.</p></article><article><span>Compare → Individual request</span><h3>Put the evidence in context.</h3><p>Compare segments or periods alongside global filters, then inspect the recorded events of a single request.</p></article></div><p class="bv-small bv-scope-note">Demonstration data: Business Account Setup and EFT Processing. Activity elapsed time is not automatically idle time; associations and repeated events are evidence to investigate.</p><a class="bv-text-link" href="/how-it-works#banking-walkthrough">Explore how RE-ViVE works →</a></div></section>
+
+  <section class="bv-section bv-soft" id="starting-point"><div class="bv-shell"><div class="bv-section-heading"><div><p class="bv-eyebrow">Start with one journey</p><h2>Your records.<br/>A focused starting point.</h2></div><p>Agree the scope, connect usable sources and establish the environment. An initial execution view takes about ten business days after those prerequisites are ready. Then decide what to investigate next.</p></div><BankingVideo index={2}/><div class="bv-principles"><p><strong>Read-only source access</strong><span>Nothing is written back to source systems.</span></p><p><strong>Multiple service workflows</strong><span>Expand within onboarding as relevant records and priorities are agreed.</span></p><p><strong>The bank decides</strong><span>Use evidence and modeled scenarios to evaluate a change; estimates are not delivered results.</span></p></div><a class="bv-text-link" href="/start-with-one-journey">What starting with one journey involves →</a></div></section>
+  <BankingContact/>
+</main>
+</Layout>
