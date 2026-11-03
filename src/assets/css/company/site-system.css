@@ -1,0 +1,181 @@
+/* ==========================================================================
+   RE-ViVE site system (16 Oct 2026)
+   One type scale and four section themes for every page.
+   Loaded by Layout.astro after main.css, so it is the last stylesheet.
+
+   TYPE (same scale as the home page)
+     .ts-h1       page title             54 -> 36px
+     .ts-h2       section title          44 -> 30px
+     .ts-h3       card / item title      22 -> 20px
+     .ts-lead     paragraph under a title 19 -> 17px
+     .ts-body     body text              16.5 -> 16px (never smaller)
+     .ts-eyebrow  small title above a section title, 14px uppercase
+     .ts-label    small labels inside cards, 13px uppercase
+     .ts-accent   the coloured part of a title
+   The type classes use !important on size and colour so they win over the
+   older page stylesheets. Put them on the element in the page markup.
+
+   THEMES (put one on each <section>; rotate them down the page)
+     .th-plain    white, as on the home page. Pages that need little colour.
+     .th-purple   light lavender with deep purple titles (banking heroes)
+     .th-cream    warm cream with green accents (community banks panels)
+     .th-blue     dark navy band with white titles (banking "transform" bands)
+   Rules: never the same theme twice in a row; at most two .th-blue bands
+   per page, plus the closing call to action.
+   ========================================================================== */
+
+:root {
+  --ts-hero: clamp(36px, 3.5vw, 54px);
+  --ts-h2: clamp(30px, 3.1vw, 44px);
+  --ts-h3: clamp(20px, 1.5vw, 22px);
+  --ts-lead: clamp(17px, 1.3vw, 19px);
+  --ts-body: 16.5px;
+  --ts-eyebrow: 14px;
+  --ts-label: 13px;
+  --ts-ink: #1f344c;
+  --ts-title: #2e2470;
+  --ts-muted: #4b5a6b;
+  --ts-purple: #5a47b8;
+  --ts-section-y: 96px;
+  --ts-width: min(1360px, calc(100% - (2 * var(--revive-gutter, 24px))));
+}
+@media (max-width: 760px) {
+  :root { --ts-section-y: 64px; --ts-width: calc(100% - 32px); --ts-body: 16px; }
+}
+
+/* ---------- Themes ---------- */
+/* Each theme sets the background and the colours the type classes use. */
+.th-plain {
+  --th-bg: #ffffff;
+  --th-title: #2e2470;
+  --th-accent: #5a47b8;
+  --th-text: #4b5a6b;
+  --th-strong: #1f344c;
+  --th-eyebrow: #5a47b8;
+  --th-card: #ffffff;
+  --th-line: rgba(36, 52, 77, 0.12);
+}
+.th-purple {
+  --th-bg: radial-gradient(circle at 82% 12%, rgba(90, 71, 184, 0.10), rgba(90, 71, 184, 0) 30%),
+           linear-gradient(180deg, #f8f7fd 0%, #f2f0fa 100%);
+  --th-title: #30287f;
+  --th-accent: #5a47b8;
+  --th-text: #4b5a6b;
+  --th-strong: #1f344c;
+  --th-eyebrow: #5a47b8;
+  --th-card: #ffffff;
+  --th-line: rgba(48, 40, 127, 0.14);
+}
+.th-cream {
+  --th-bg: radial-gradient(circle at 10% 8%, rgba(47, 107, 90, 0.07), rgba(47, 107, 90, 0) 26%),
+           linear-gradient(180deg, #fbfaf4 0%, #f3f5ee 100%);
+  --th-title: #1d3a4a;
+  --th-accent: #2f6b5a;
+  --th-text: #4a5a55;
+  --th-strong: #1d3a4a;
+  --th-eyebrow: #2f6b5a;
+  --th-card: #ffffff;
+  --th-line: rgba(47, 107, 90, 0.16);
+}
+.th-blue {
+  --th-bg: radial-gradient(circle at 84% 12%, rgba(117, 181, 224, 0.16), rgba(117, 181, 224, 0) 30%),
+           linear-gradient(135deg, #142e49 0%, #173a5d 46%, #202f59 100%);
+  --th-title: #ffffff;
+  --th-accent: #8cc4ea;
+  --th-text: #c9d6e6;
+  --th-strong: #ffffff;
+  --th-eyebrow: #c3b8f5;
+  --th-card: rgba(255, 255, 255, 0.06);
+  --th-line: rgba(255, 255, 255, 0.14);
+}
+body .th-plain,
+body .th-purple,
+body .th-cream,
+body .th-blue {
+  background: var(--th-bg) !important;
+  color: var(--th-text);
+}
+
+/* ---------- Type ---------- */
+body .ts-h1 {
+  font-family: var(--brand-font), Calibri, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ts-hero) !important;
+  line-height: 1.06 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--th-title, var(--ts-title)) !important;
+  text-wrap: balance;
+}
+body .ts-h2 {
+  font-family: var(--brand-font), Calibri, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ts-h2) !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--th-title, var(--ts-title)) !important;
+  text-wrap: balance;
+}
+body .ts-h3 {
+  font-family: var(--brand-font), Calibri, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ts-h3) !important;
+  line-height: 1.25 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.005em !important;
+  color: var(--th-strong, var(--ts-ink)) !important;
+}
+body .ts-lead {
+  font-size: var(--ts-lead) !important;
+  line-height: 1.55 !important;
+  color: var(--th-text, var(--ts-muted)) !important;
+  max-width: 70ch;
+}
+body .ts-body {
+  font-size: var(--ts-body) !important;
+  line-height: 1.6 !important;
+  color: var(--th-text, var(--ts-muted)) !important;
+}
+body .ts-eyebrow {
+  font-family: var(--brand-font), Calibri, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ts-eyebrow) !important;
+  line-height: 1.3 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--th-eyebrow, var(--ts-purple)) !important;
+}
+body .ts-label {
+  font-family: var(--brand-font), Calibri, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ts-label) !important;
+  line-height: 1.3 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--th-eyebrow, var(--ts-purple)) !important;
+}
+body .ts-accent {
+  color: var(--th-accent, var(--ts-purple)) !important;
+}
+/* Section numbers ("01 The platform"): number and label in eyebrow style,
+   no rule line in front. */
+body .ts-num::before,
+body .ts-num::after { display: none !important; content: none !important; }
+body .ts-num {
+  font-family: var(--brand-font), Calibri, "Segoe UI", Arial, sans-serif !important;
+  font-size: var(--ts-label) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--th-text, var(--ts-muted)) !important;
+}
+
+/* ---------- Rhythm ---------- */
+body .ts-section {
+  padding-top: var(--ts-section-y) !important;
+  padding-bottom: var(--ts-section-y) !important;
+}
+body .ts-shell {
+  width: var(--ts-width) !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

@@ -41,6 +41,23 @@ they are; a route runs the Worker before any origin is contacted.
 `npm run deploy` builds and publishes. Keep "Always Use HTTPS" on in the
 zone's SSL/TLS settings; the Worker does not upgrade http itself.
 
+## Contact form
+
+`/company/contact` posts to `src/pages/api/contact.js`, which emails the
+enquiry through Microsoft Graph (`src/lib/server/`), the same code as
+re-vive.com. Non-secret settings (`MS_CLIENT_ID`, `MS_TENANT_ID`,
+`MS_SENDER_EMAIL`) are in `wrangler.json`. Two secrets must be set on the
+Worker once, from a terminal in this folder:
+
+```
+npx wrangler secret put MS_CLIENT_SECRET
+npx wrangler secret put CONTACT_TO_EMAIL
+```
+
+Until both exist the API answers 503 and the page tells the visitor to email
+connect@revivetoday.com. For local testing copy `.dev.vars.example` to
+`.dev.vars` and fill it in.
+
 ## Adding a page
 
 Create `src/pages/<slug>.astro`:

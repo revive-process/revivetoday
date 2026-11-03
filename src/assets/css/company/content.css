@@ -1,0 +1,655 @@
+/* ==========================================================================
+   Content family: About (company/*), case studies, blogs, privacy, demo, 404.
+   Imported last in each of those pages. Works with site-system.css:
+   section themes (.th-*) and type classes (.ts-*) are set in the markup;
+   this file only adapts the older page components to them.
+   Every selector starts with "body" so it wins over the page stylesheets.
+   ========================================================================== */
+
+/* ---------- 1. Brand font everywhere ----------
+   The case-study and blog stylesheets used IBM Plex Mono and Source Serif
+   through these two tokens. Point both at the brand font (Inter). */
+body {
+  --mono: var(--font-body);
+  --serif: var(--font-body);
+}
+
+/* ---------- 2. Shared closing call to action (#cta-wrap) ---------- */
+/* The title is now an h2 (one h1 per page). */
+body #cta-wrap .cta-title {
+  max-width: 930px;
+  margin: 0;
+}
+body #cta-wrap .cta-sub {
+  margin: 14px 0 0;
+}
+
+/* ==========================================================================
+   3. ABOUT: /company, /company/careers, /company/contact
+   ========================================================================== */
+
+/* Content width = header width, with the 16px phone gutter. */
+body .company-page .page-wrap .shell,
+body .ei-paper-page .page-wrap .shell {
+  width: var(--ts-width) !important;
+}
+/* The page wrapper paints white; let each section's theme show through. */
+
+body .company-page .page-wrap {
+  background: transparent;
+}
+/* Hero title: the first line follows the theme title colour,
+   the second line is the accent (.ts-accent in the markup). */
+body .company-page .page-hero .hero-line-one {
+  color: inherit;
+}
+body .company-page .page-hero .page-title {
+  max-width: none;
+  margin-bottom: 26px;
+}
+body .company-page .page-hero .page-intro {
+  max-width: 58ch;
+  margin: 0 0 16px;
+}
+body .company-page .band-head .kicker,
+body .company-page .page-hero .eyebrow {
+  margin-bottom: 16px;
+}
+body .company-page .band-head .ts-h2 {
+  max-width: min(100%, 22ch);
+}
+/* Centred section heads (not the ones inside a two-column split) */
+body .company-page .shell > .band-head .ts-h2 {
+  margin-inline: auto;
+}
+body .company-page .band-head .band-intro {
+  margin-inline: auto;
+  font-weight: 600;
+}
+body .company-page .split-copy p {
+  margin-top: 22px;
+}
+/* Same-theme neighbours (contact page is plain throughout) get a hairline. */
+body .company-page .page-wrap + .page-wrap > .th-plain {
+  border-top: 1px solid var(--th-line);
+}
+
+/* Dark band: step cards (Why RE-ViVE exists) */
+body .company-page .th-blue .step-card:not(.is-outcome) {
+
+  border-color: var(--th-line);
+  background: var(--th-card);
+}
+body .company-page .th-blue .step-card:not(.is-outcome) .ts-h3 {
+  color: #ffffff !important;
+}
+body .company-page .step-card p {
+  font-size: 16px;
+  color: var(--th-text);
+}
+body .company-page .th-blue .step-card.is-outcome p {
+  color: #ece9fb;
+}
+/* Light step cards (careers hiring steps) */
+body .company-page .step-row.is-light .step-card .ts-h3 {
+  color: var(--th-title) !important;
+}
+body .company-page .step-row.is-light .step-card p {
+  color: var(--th-text);
+}
+body .company-page .step-row.is-light .step-card .step-no {
+  color: var(--th-accent);
+}
+
+/* Cards and statements follow the section theme */
+body .company-page .card {
+  border-color: var(--th-line);
+  border-left-color: var(--th-accent);
+  background: var(--th-card);
+}
+body .company-page .card .ts-h3 {
+  color: var(--th-title) !important;
+}
+body .company-page .card p {
+  font-size: 16.5px;
+  color: var(--th-text);
+}
+body .company-page .statement-card p {
+  font-size: var(--ts-lead);
+}
+
+/* Careers: open roles */
+body .company-page .role {
+  border-bottom-color: var(--th-line);
+}
+body .company-page .role .ts-h3 {
+  color: var(--th-title) !important;
+}
+body .company-page .role .role-meta {
+  font-size: 16px;
+  color: var(--th-text);
+}
+body .company-page .role .role-team {
+  color: #2f6b5a;
+}
+
+/* Contact: form card, other ways to reach us, what happens next */
+body .company-page .form-card h2,
+body .company-page .reach h2 {
+  font-size: clamp(24px, 1.9vw, 28px);
+  letter-spacing: -0.01em;
+}
+body .company-page .pillar p,
+body .company-page .office address,
+body .company-page .reach .reach-intro,
+body .company-page .form-card .form-sub {
+  font-size: 16.5px;
+}
+
+/* ==========================================================================
+   4. ABOUT: /company/leadership (lp-*)
+   ========================================================================== */
+body .lp .lp-hero::after {
+  display: none;
+}
+body .lp .lp-hero .ts-h1 {
+  max-width: 20ch;
+  margin-bottom: 24px;
+}
+body .lp .lp-head .ts-h2 {
+  max-width: 24ch;
+}
+body .lp .lp-founder .ts-h2 {
+  margin-bottom: 6px;
+}
+body .lp .lp-band + .lp-band {
+  border-top: 0;
+}
+body .lp .lp-role {
+  margin-bottom: 16px;
+}
+body .lp .lp-bio,
+body .lp .lp-team .lp-bio,
+body .lp .lp-board .lp-bio,
+body .lp .lp-advisor .lp-bio {
+  font-size: 16.5px;
+  color: var(--th-text);
+}
+body .lp .lp-founder .lp-bio {
+  font-size: var(--ts-lead);
+  color: var(--th-strong);
+}
+body .lp .lp-linkedin {
+  font-size: 15px;
+  color: var(--th-strong);
+  border-top-color: var(--th-line) !important;
+}
+/* Leadership team on the dark band */
+body .lp .th-blue .lp-linkedin svg {
+  color: #8cc4ea;
+}
+body .lp .th-blue .lp-portrait {
+  background: rgba(255, 255, 255, 0.06);
+}
+/* Closing line */
+body .lp .lp-close p {
+  font-size: 17px;
+  color: var(--th-text);
+}
+body .lp .lp-close a {
+  color: var(--th-title);
+  border-bottom-color: var(--th-accent);
+}
+
+/* ==========================================================================
+   5. CASE STUDIES (index + 4 studies) and the BLOGS INDEX
+   Both use the same markup: section.hero, .mark numbers, .section bands.
+   ========================================================================== */
+
+/* Content width lines up with the header; the old .shell padding goes. */
+body #main .shell.ts-shell {
+  padding-inline: 0;
+}
+
+/* Numbered section labels ("02 The problem"): no rule line, brand font. */
+body .mark.ts-num {
+  gap: 0.5rem;
+  margin-bottom: 14px;
+}
+body .mark.ts-num b {
+  font-family: inherit;
+  font-weight: 800;
+  color: var(--th-eyebrow);
+}
+/* When a number sits above an eyebrow, the number is the quieter line. */
+body .mark.ts-num + .ts-eyebrow {
+  margin-bottom: 16px;
+}
+body .ts-h2.prose {
+  max-width: 24ch;
+}
+body .lede.ts-lead {
+  max-width: 64ch;
+}
+
+/* Hero: was a navy band, now follows its theme (purple or plain). */
+body section.hero {
+  color: var(--th-text);
+  padding-top: clamp(40px, 5vw, 64px);
+  padding-bottom: clamp(56px, 7vw, 88px);
+}
+body section.hero .ts-h1 {
+  max-width: 20ch;
+}
+body section.hero .standfirst {
+  margin-top: 22px;
+  font-weight: 400;
+}
+body section.hero .masthead {
+  padding-bottom: 32px;
+}
+body section.hero .masthead .back,
+body section.hero .back-link {
+  color: var(--th-accent);
+  font-size: 15px;
+  font-weight: 600;
+}
+body section.hero .masthead .back:hover {
+  color: var(--th-title);
+}
+body section.hero .ribbon-cap,
+body section.hero .bar-key {
+  color: var(--th-text);
+  font-size: 16px;
+}
+
+body section.hero .ribbon-cap b {
+  color: var(--th-strong);
+  font-weight: 700;
+}
+body section.hero .figures {
+  border-top-color: var(--th-line);
+}
+body section.hero .figures div b {
+  color: var(--th-title);
+  font-weight: 800;
+}
+body section.hero .figures div span {
+  color: var(--th-text);
+  font-size: 15px;
+}
+
+/* Body text at reading size (was 15-15.7px) */
+body .rule-list p,
+body .step p,
+body .play p,
+body .common p,
+body .tile .tags,
+body .log-note,
+body .funnel small,
+body .path span,
+body .stat small {
+  font-size: 16px;
+}
+body .rule-list p,
+body .step p,
+body .finding-text p {
+  color: var(--th-text);
+}
+body .finding-text .ts-h3 {
+  margin-bottom: 12px;
+  color: var(--th-title) !important;
+}
+body .play .impact {
+  font-size: 16px;
+  color: #c3b8f5;
+}
+body .play-n,
+body .step .step-n,
+body .find-mark,
+body .common .n {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+body .step .step-n,
+body .find-mark {
+  color: var(--th-eyebrow);
+}
+/* Data table inside the "one request, reconstructed" panel */
+body .log table {
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+body .log-head {
+  font-size: 14px;
+}
+
+/* Cards follow the section theme */
+body .th-plain .rule-list li,
+body .th-plain .tile {
+  background: #ffffff;
+}
+body .tile {
+  text-decoration: none;
+}
+/* Four engagements: two by two on wide screens, one column on phones. */
+@media (min-width: 761px) {
+  body .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+body .tile .ts-h3 {
+  margin-top: 10px;
+  color: var(--th-title) !important;
+}
+body .tile .eye,
+body .tile .vis {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+body .tile .figs span {
+  font-size: 14px;
+}
+body .tile-actions .go,
+body .tile .go {
+  font-size: 16px;
+}
+/* "What they had in common" and recommendations: follow the theme
+   (blue band on case studies, plain on the blogs index). */
+body .plays .common .ts-h3,
+body .plays .play .ts-h3 {
+  color: var(--th-title) !important;
+}
+body .plays .common p,
+body .plays .play p {
+  color: var(--th-text);
+}
+body .plays .common .n,
+body .plays .play-n {
+  color: var(--th-eyebrow);
+}
+/* Two plain sections in a row get a hairline between them. */
+body section.th-plain + section.th-plain {
+  border-top: 1px solid var(--th-line);
+}
+
+body .plays.th-blue .play {
+  border-top-color: var(--th-line);
+}
+
+/* Closing band buttons */
+body .close .btn {
+  font-weight: 700;
+  border-radius: 10px;
+}
+body .close .btn-line {
+  border-color: var(--th-title);
+  color: var(--th-title);
+}
+
+/* ==========================================================================
+   6. BLOGS INDEX cards
+   ========================================================================== */
+body .post {
+  background: #ffffff;
+}
+body .post .ts-h3 {
+  margin-top: 10px;
+  color: var(--th-title) !important;
+}
+body .post .eye {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+body .post .dek {
+  font-size: 16px;
+  color: var(--th-text);
+}
+body .post .figs span {
+  font-size: 14px;
+}
+body .post .go {
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   7. BLOG ARTICLES (mainblog.css posts)
+   Reading scale: title .ts-h1, body 17.5px, section h2 28px, h3 21px.
+   ========================================================================== */
+body .arthead {
+  padding-top: clamp(40px, 5vw, 64px);
+}
+/* The title may use the margin-note column too, so it sets in 2-3 lines. */
+@media (min-width: 981px) {
+  body .arthead .ts-h1 {
+    grid-column: 2 / -1;
+    max-width: 22ch;
+  }
+}
+body .arthead .ts-h1 {
+  overflow-wrap: normal;
+}
+body .arthead .eyebrow {
+  margin-bottom: 18px;
+}
+body .arthead .deck {
+  margin-top: 22px;
+  max-width: none;
+}
+body .artmeta {
+  font-size: 16px;
+  color: var(--ts-muted);
+}
+body .artmeta .dot {
+  color: #9aa3b2;
+}
+
+/* In brief + contents labels (were tiny h2s) */
+body .abstract .box-title,
+body .rail .rail-title {
+  margin: 0 0 14px;
+}
+body .rail .rail-title {
+  color: var(--ts-muted) !important;
+}
+body .abstract ul {
+  font-size: 17px;
+  line-height: 1.6;
+}
+body .rail a {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--ts-muted);
+}
+body .rail a::before {
+  color: #6b7482;
+}
+body .rail a:hover,
+body .rail a[aria-current="true"] {
+  color: var(--ts-title);
+}
+
+/* Body copy */
+body .article {
+  font-size: 17.5px;
+  line-height: 1.7;
+  color: #1f344c;
+}
+body .article h2 {
+  margin: 0 0 18px;
+  font-size: clamp(24px, 2vw, 28px);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--ts-title);
+}
+body .article h2 .num {
+  font-size: 0.8em;
+  font-weight: 800;
+  color: var(--ts-purple);
+  margin-right: 0.55rem;
+}
+body .article h3,
+body .qa h3 {
+  margin: 32px 0 10px;
+  font-size: clamp(19px, 1.5vw, 21px);
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  color: #1f344c;
+}
+body .qa h3:first-child,
+body .caveat h3 {
+  margin-top: 0;
+}
+body .article .standout {
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+/* Notes, definitions, numbers */
+body .sidenote {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ts-muted);
+}
+body .define dt {
+  font-size: 17px;
+  font-weight: 700;
+}
+body .define dd,
+body .seq span {
+  font-size: 17px;
+}
+body .seq b {
+  font-size: 17px;
+  font-weight: 700;
+}
+body .keynums div span {
+  font-size: 14px;
+}
+
+/* Figures and tables */
+body .article figcaption {
+  font-size: 16px;
+}
+body .article figcaption .src {
+  font-size: 14px;
+}
+body table.data {
+  font-size: 16px;
+}
+body table.data th {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+body table.data .num {
+  font-variant-numeric: tabular-nums;
+}
+body .rbar .lab {
+  font-size: 15px;
+}
+
+/* References, related reading */
+body .refs {
+  font-size: 16px;
+}
+body .artfoot h2 {
+  margin-bottom: 20px;
+  font-size: clamp(19px, 1.5vw, 21px);
+  font-weight: 800;
+  color: var(--ts-title);
+}
+body .reading .eye {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+body .reading b {
+  font-size: 17px;
+  font-weight: 700;
+}
+body .endnote {
+  font-size: 16px;
+}
+
+@media (max-width: 520px) {
+  body .article {
+    font-size: 17px;
+  }
+  body .article h2 {
+    font-size: 23px;
+  }
+  body .article .standout {
+    font-size: 18.5px;
+  }
+}
+
+/* ==========================================================================
+   8. DEMO, PRIVACY, 404
+   ========================================================================== */
+/* /demo: the booking frame is the page; its title is for screen readers. */
+body .demo-title-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   9. TWO LONG-FORM PIECES IN /blogs with their own stylesheets
+   (capital markets use case, Execution Intelligence paper): type fixes only.
+   Text inside dense diagrams and five-across tiles stays at 15px.
+   ========================================================================== */
+body .cm-uc .uc-hero .ts-h1 .l2 {
+  display: block;
+}
+body .cm-uc .uc-kicker.ts-eyebrow {
+  color: var(--th-eyebrow, var(--uc-blue-deep)) !important;
+}
+body .cm-uc .uc-related p,
+body .cm-uc table td,
+body .cm-uc .uc-fig-cap .d,
+body .cm-uc .uc-fig-foot span {
+  font-size: 16px;
+}
+body .cm-uc .uc-scope-foot,
+body .cm-uc .uc-panel-foot,
+body .cm-uc .uc-tile p,
+body .cm-uc .uc-variant .s {
+  font-size: 15px;
+}
+body .cm-uc .uc-related .go {
+  font-size: 15px;
+}
+
+body .ei-paper-page .bridge-card p,
+body .ei-paper-page .related p,
+body .ei-paper-page .figure-foot {
+  font-size: 16px;
+}
+body .ei-paper-page ul.tech li {
+  font-size: 15px;
+}
+body .ei-paper-page .sec-head .ts-h2 {
+  margin: 0;
+}
+
+/* Final contrast pass (merge review) */
+body .paper-rail .rail-label,
+body .dce-card .tech-label { color: #5b6573; font-size: 13px; }
+body .bridge-card.is-evaluate { --bc: #2f7d75; }
+body .uc-chain .hit { font-size: 13px; }

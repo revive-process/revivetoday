@@ -10,6 +10,14 @@
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
   },
+  "vars": {
+    "MS_CLIENT_ID": "7c22d255-8694-41ec-8294-a8b79b7a44e1",
+    "MS_TENANT_ID": "5dc5e028-a2d4-4339-9b06-2cc806dec211",
+    "MS_SENDER_EMAIL": "connect@revivetoday.com"
+  },
+  "ratelimits": [
+    { "name": "FORM_RATE_LIMIT", "namespace_id": "1002", "simple": { "limit": 10, "period": 60 } }
+  ],
   "routes": [
     { "pattern": "revivetoday.com/*", "zone_name": "revivetoday.com" },
     { "pattern": "www.revivetoday.com/*", "zone_name": "revivetoday.com" }

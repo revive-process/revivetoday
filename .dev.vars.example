@@ -1,0 +1,9 @@
+# Copy to .dev.vars for local development (git-ignored). Values are NOT committed.
+# Non-secret settings (MS_CLIENT_ID, MS_TENANT_ID, MS_SENDER_EMAIL) live in wrangler.json "vars".
+# In production set each secret with:  npx wrangler secret put <NAME>
+
+# Microsoft Entra app used to send mail through Microsoft Graph (client-credentials flow)
+MS_CLIENT_SECRET=
+
+# Mailbox that receives contact-form submissions
+CONTACT_TO_EMAIL=

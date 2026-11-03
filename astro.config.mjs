@@ -32,6 +32,8 @@ export default defineConfig({
   // The old banking.html overview now lives on the workflows page.
   redirects: {
     '/banking': '/workflows',
+    '/leadership': '/company/leadership',
+    '/careers': '/company/careers',
   },
 
   adapter: cloudflare({

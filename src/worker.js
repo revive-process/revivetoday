@@ -32,6 +32,8 @@ const SECONDARY_HOSTS = new Set(["www.revivetoday.com"]);
 const RETIRED_PATHS = {
   "/banking": "/workflows",
   "/proof": "/success-stories",
+  "/leadership": "/company/leadership",
+  "/careers": "/company/careers",
 };
 
 const SECURITY_HEADERS = {

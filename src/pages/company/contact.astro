@@ -1,0 +1,1229 @@
+---
+// Contact page, ported from the re-vive.com repository (src/pages/company/contact.astro).
+// The form posts JSON to /api/contact, which emails the enquiry through Microsoft
+// Graph once MS_CLIENT_SECRET and CONTACT_TO_EMAIL are set on the Worker; until
+// then the API answers 503 and the page shows the email address instead.
+import Layout from "../../layouts/Layout.astro";
+import "../../assets/css/company/site-system.css";
+import "../../assets/css/company/content.css";
+import "../../assets/css/company/company.css";
+import "../../assets/css/company/contact.css";
+---
+<Layout title="Contact RE-ViVE: Execution Intelligence Demos and Enquiries" description="Tell us about a process and we will show you how it actually executes. Evaluating, scoping a first process or exploring a partnership? Start here." current="/company/contact">
+<Fragment slot="head">
+<link href="/images/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="/assets/css/astro/Layout.4-OxGKtL.css" rel="stylesheet"/>
+<link href="/assets/css/chrome.css" rel="stylesheet"/>
+<link href="/assets/css/banking-extension.css" rel="stylesheet"/><link href="/assets/css/banking-v2.css" rel="stylesheet"/><link href="/assets/css/banking-v3.css" rel="stylesheet"/><link href="/assets/css/banking-nav-v4.css" rel="stylesheet"/><link href="/assets/css/banking-production-v7.css" rel="stylesheet"/>
+</Fragment>
+<main id="main">
+<div class="company-page">
+
+        
+
+        <div
+            class="page-wrap"
+            id="contact-hero-wrap"
+        >
+
+            <section class="page-hero th-plain">
+
+                <div class="shell">
+
+                    <p class="eyebrow ts-eyebrow">
+                        Contact RE-ViVE
+                    </p>
+
+
+                    <h1 class="page-title ts-h1">
+
+                        <span
+                            class="hero-line hero-line-one"
+                        >
+                            Tell us about a process,
+                        </span>
+
+                        <span
+                            class="hero-line hero-line-two ts-accent"
+                        >
+                            and we will show you how it actually executes.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="page-intro ts-lead">
+
+                        Whether you are evaluating
+                        Execution Intelligence,
+                        scoping a first process,
+                        or looking for a partner
+                        conversation, this is the
+                        place to start.
+
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        
+
+        <div
+            class="page-wrap"
+            id="contact-form-wrap"
+        >
+
+            <section class="band band-tint th-plain ts-section">
+
+                <div class="shell">
+
+                    <div class="contact-layout">
+
+
+                        
+
+                        <div class="form-card">
+
+
+                            
+
+                            <div id="contactForm">
+
+                                <h2>
+                                    Where should we reach you?
+                                </h2>
+
+
+                                <p class="form-sub">
+
+                                    Share your details and
+                                    the right person at
+                                    RE-ViVE will follow up.
+
+                                </p>
+
+
+                                <form
+                                    id="contactFields"
+                                    novalidate
+                                >
+
+
+                                    
+
+                                    <div class="field">
+
+                                        <label for="cName">
+
+                                            Name
+
+                                            <span
+                                                class="req"
+                                                aria-hidden="true"
+                                            >
+                                                *
+                                            </span>
+
+                                        </label>
+
+
+                                        <input
+                                            id="cName"
+                                            name="name"
+                                            type="text"
+                                            autocomplete="name"
+                                            maxlength="150"
+                                            required
+                                            aria-required="true"
+                                        />
+
+
+                                        <span
+                                            class="field-err"
+                                            id="cNameErr"
+                                            aria-live="polite"
+                                        ></span>
+
+                                    </div>
+
+
+                                    
+
+                                    <div class="field">
+
+                                        <label for="cEmail">
+
+                                            Business email
+
+                                            <span
+                                                class="req"
+                                                aria-hidden="true"
+                                            >
+                                                *
+                                            </span>
+
+                                        </label>
+
+
+                                        <input
+                                            id="cEmail"
+                                            name="email"
+                                            type="email"
+                                            autocomplete="email"
+                                            maxlength="200"
+                                            required
+                                            aria-required="true"
+                                        />
+
+
+                                        <span
+                                            class="field-err"
+                                            id="cEmailErr"
+                                            aria-live="polite"
+                                        ></span>
+
+                                    </div>
+
+
+                                    
+
+                                    <div class="field">
+
+                                        <label for="cCompany">
+
+                                            Company
+
+                                            <span class="opt">
+                                                (optional)
+                                            </span>
+
+                                        </label>
+
+
+                                        <input
+                                            id="cCompany"
+                                            name="company"
+                                            type="text"
+                                            maxlength="200"
+                                            autocomplete="organization"
+                                        />
+
+                                    </div>
+
+
+                                    
+
+                                    <div class="field-pair">
+
+
+                                        <div class="field">
+
+                                            <label for="cRole">
+
+                                                Role
+
+                                                <span class="opt">
+                                                    (optional)
+                                                </span>
+
+                                            </label>
+
+
+                                            <input
+                                                id="cRole"
+                                                name="role"
+                                                type="text"
+                                                maxlength="150"
+                                                autocomplete="organization-title"
+                                            />
+
+                                        </div>
+
+
+                                        <div class="field">
+
+                                            <label for="cPhone">
+
+                                                Phone
+
+                                                <span class="opt">
+                                                    (optional)
+                                                </span>
+
+                                            </label>
+
+
+                                            <input
+                                                id="cPhone"
+                                                name="phone"
+                                                type="tel"
+                                                maxlength="50"
+                                                autocomplete="tel"
+                                            />
+
+                                        </div>
+
+                                    </div>
+
+
+                                    
+
+                                    <div
+                                        class="contact-honeypot field"
+                                        aria-hidden="true"
+                                    >
+
+                                        <label for="cWebsite">
+                                            Website
+                                        </label>
+
+
+                                        <input
+                                            id="cWebsite"
+                                            name="website"
+                                            type="text"
+                                            tabindex="-1"
+                                            autocomplete="off"
+                                        />
+
+                                    </div>
+
+
+                                    
+
+                                    <input
+                                        id="cStartedAt"
+                                        name="startedAt"
+                                        type="hidden"
+                                    />
+
+
+                                    
+
+                                    <p
+                                        id="contactSubmitError"
+                                        class="field-err contact-submit-error"
+                                        aria-live="polite"
+                                    ></p>
+
+
+                                    
+
+                                    <button
+                                        id="contactSubmitButton"
+                                        type="submit"
+                                        class="form-submit"
+                                    >
+
+                                        <span
+                                            id="contactSubmitText"
+                                        >
+                                            Send my details
+                                        </span>
+
+                                    </button>
+
+                                </form>
+
+
+                                <p class="form-note">
+
+                                    We use these details
+                                    to reply to you and
+                                    to follow up about
+                                    Execution Intelligence.
+
+                                    We do not share them.
+
+                                    See our
+
+                                    privacy notice
+
+                                    for how we handle
+                                    your data.
+
+                                </p>
+
+                            </div>
+
+
+                            
+
+                            <div
+                                id="contactDone"
+                                class="form-done"
+                                hidden
+                            >
+
+                                <p class="kicker">
+                                    Thank you
+                                </p>
+
+
+                                <h2>
+                                    We have your details.
+                                </h2>
+
+
+                                <p>
+
+                                    Someone from RE-ViVE
+                                    will be in touch at
+                                    the address you gave us.
+
+                                </p>
+
+
+                                <p>
+
+                                    If it is easier,
+                                    you can also write to
+
+                                    <a
+                                        href="mailto:connect@revivetoday.com"
+                                    >
+                                        connect@revivetoday.com
+                                    </a>.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        
+
+                        <div class="reach">
+
+                            <h2>
+                                Other ways to reach us.
+                            </h2>
+
+
+                            <p class="reach-intro">
+
+                                Email reaches both offices.
+
+                                Post and visits should go
+                                to the address closest
+                                to your team.
+
+                            </p>
+
+
+                            <a
+                                class="reach-email"
+                                href="mailto:connect@revivetoday.com"
+                            >
+                                connect@revivetoday.com
+                            </a>
+
+
+                            
+
+                            <div class="office">
+
+                                <h3 class="ts-h3">
+
+                                    Revive Inc
+                                </h3>
+
+
+                                <span class="office-role">
+                                    Corporate Headquarters
+                                </span>
+
+
+                                <address>
+
+                                    1700 Alma Drive,
+                                    Suite 320
+
+                                    <br />
+
+                                    Plano, TX 75075
+
+                                    <br />
+
+                                    United States
+
+                                </address>
+
+                            </div>
+
+
+                            
+
+                            <div class="office">
+
+                                <h3 class="ts-h3">
+
+                                    Revive Today Private Limited
+                                </h3>
+
+
+                                <span class="office-role">
+                                    Global Capability Center
+                                </span>
+
+
+                                <address>
+
+                                    102, Rams Plaza,
+                                    2nd Lane
+
+                                    <br />
+
+                                    Dwarakanagar,
+                                    Visakhapatnam 530016
+
+                                    <br />
+
+                                    India
+
+                                </address>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        
+
+        <div
+            class="page-wrap"
+            id="contact-next-wrap"
+        >
+
+            <section class="band th-plain ts-section">
+
+                <div class="shell">
+
+
+                    <div class="band-head">
+
+                        <p class="kicker ts-eyebrow">
+                            What happens next
+                        </p>
+
+
+                        <h2 class="ts-h2">
+
+                            A short conversation,
+                            then a look at real execution.
+
+                        </h2>
+
+                    </div>
+
+
+                    <div class="pillars">
+
+
+                        <div class="pillar">
+
+                            <h3 class="ts-h3">
+
+                                We reply
+                            </h3>
+
+
+                            <p>
+
+                                A member of the team
+                                responds directly,
+                                and routes you to sales,
+                                delivery or partnerships
+                                depending on what you need.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="pillar">
+
+                            <h3 class="ts-h3">
+
+                                We scope one process
+                            </h3>
+
+
+                            <p>
+
+                                A working call to agree
+                                the process, the systems
+                                involved and the data
+                                required.
+
+                                No process mapping
+                                workshops needed.
+
+                            </p>
+
+                        </div>
+
+
+                        <div class="pillar">
+
+                            <h3 class="ts-h3">
+
+                                You see your own execution
+                            </h3>
+
+
+                            <p>
+
+                                With read-only access to
+                                the underlying data,
+                                RE-ViVE reconstructs how
+                                the work actually ran
+                                across those systems.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+
+    
+
+    <script is:inline>
+        (function () {
+
+            "use strict";
+
+
+            /* ==============================================================
+               CONFIGURATION
+               ============================================================== */
+
+            var ENDPOINT =
+                "/api/contact";
+
+
+            /*
+             * Set to true when you want
+             * to reject Gmail/Yahoo/etc.
+             */
+
+            var BLOCK_FREE =
+                false;
+
+
+            var FREE = [
+
+                "gmail.com",
+
+                "googlemail.com",
+
+                "yahoo.com",
+
+                "hotmail.com",
+
+                "outlook.com",
+
+                "live.com",
+
+                "aol.com",
+
+                "icloud.com",
+
+                "proton.me",
+
+                "protonmail.com",
+
+                "gmx.com",
+
+                "mail.com"
+            ];
+
+
+            /* ==============================================================
+               ELEMENTS
+               ============================================================== */
+
+            var form =
+                document.getElementById(
+                    "contactFields"
+                );
+
+
+            if (!form) {
+                return;
+            }
+
+
+            var formWrap =
+                document.getElementById(
+                    "contactForm"
+                );
+
+
+            var doneWrap =
+                document.getElementById(
+                    "contactDone"
+                );
+
+
+            var submitButton =
+                document.getElementById(
+                    "contactSubmitButton"
+                );
+
+
+            var submitText =
+                document.getElementById(
+                    "contactSubmitText"
+                );
+
+
+            var submitError =
+                document.getElementById(
+                    "contactSubmitError"
+                );
+
+
+            var startedAt =
+                document.getElementById(
+                    "cStartedAt"
+                );
+
+
+            /* ==============================================================
+               START TIMER
+               ============================================================== */
+
+            if (startedAt) {
+
+                startedAt.value =
+                    String(
+                        Date.now()
+                    );
+            }
+
+
+            /* ==============================================================
+               VALIDATION HELPERS
+               ============================================================== */
+
+            function fail(
+                input,
+                errId,
+                message
+            ) {
+
+                input.setAttribute(
+                    "aria-invalid",
+                    "true"
+                );
+
+
+                var errorElement =
+                    document.getElementById(
+                        errId
+                    );
+
+
+                if (errorElement) {
+
+                    errorElement.textContent =
+                        message;
+                }
+
+
+                return false;
+            }
+
+
+            function pass(
+                input,
+                errId
+            ) {
+
+                input.removeAttribute(
+                    "aria-invalid"
+                );
+
+
+                var errorElement =
+                    document.getElementById(
+                        errId
+                    );
+
+
+                if (errorElement) {
+
+                    errorElement.textContent =
+                        "";
+                }
+
+
+                return true;
+            }
+
+
+            /* ==============================================================
+               SUBMIT
+               ============================================================== */
+
+            form.addEventListener(
+                "submit",
+
+                async function (event) {
+
+                    event.preventDefault();
+
+
+                    /* ======================================================
+                       CLEAR SERVER ERROR
+                       ====================================================== */
+
+                    if (submitError) {
+
+                        submitError.textContent =
+                            "";
+                    }
+
+
+                    /* ======================================================
+                       ELEMENTS
+                       ====================================================== */
+
+                    var name =
+                        document.getElementById(
+                            "cName"
+                        );
+
+
+                    var email =
+                        document.getElementById(
+                            "cEmail"
+                        );
+
+
+                    var company =
+                        document.getElementById(
+                            "cCompany"
+                        );
+
+
+                    var role =
+                        document.getElementById(
+                            "cRole"
+                        );
+
+
+                    var phone =
+                        document.getElementById(
+                            "cPhone"
+                        );
+
+
+                    var website =
+                        document.getElementById(
+                            "cWebsite"
+                        );
+
+
+                    var formStartedAt =
+                        document.getElementById(
+                            "cStartedAt"
+                        );
+
+
+                    var ok =
+                        true;
+
+
+                    /* ======================================================
+                       NAME
+                       ====================================================== */
+
+                    if (
+                        !name.value.trim()
+                    ) {
+
+                        ok =
+                            fail(
+                                name,
+
+                                "cNameErr",
+
+                                "Please tell us your name."
+                            ) &&
+                            ok;
+
+                    } else {
+
+                        pass(
+                            name,
+                            "cNameErr"
+                        );
+                    }
+
+
+                    /* ======================================================
+                       EMAIL
+                       ====================================================== */
+
+                    var emailValue =
+                        email.value.trim();
+
+
+                    if (!emailValue) {
+
+                        ok =
+                            fail(
+                                email,
+
+                                "cEmailErr",
+
+                                "Please add your email address."
+                            ) &&
+                            ok;
+
+                    }
+
+                    else if (
+                        !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(
+                            emailValue
+                        )
+                    ) {
+
+                        ok =
+                            fail(
+                                email,
+
+                                "cEmailErr",
+
+                                "That does not look like a valid address."
+                            ) &&
+                            ok;
+
+                    }
+
+                    else if (
+                        BLOCK_FREE &&
+
+                        FREE.indexOf(
+                            emailValue
+                                .split("@")[1]
+                                .toLowerCase()
+                        ) >
+                            -1
+                    ) {
+
+                        ok =
+                            fail(
+                                email,
+
+                                "cEmailErr",
+
+                                "Please use your work address."
+                            ) &&
+                            ok;
+
+                    }
+
+                    else {
+
+                        pass(
+                            email,
+                            "cEmailErr"
+                        );
+                    }
+
+
+                    /* ======================================================
+                       VALIDATION FAILED
+                       ====================================================== */
+
+                    if (!ok) {
+
+                        (
+                            form.querySelector(
+                                "[aria-invalid=true]"
+                            ) ||
+                            name
+                        ).focus();
+
+
+                        return;
+                    }
+
+
+                    /* ======================================================
+                       PAYLOAD
+                       ====================================================== */
+
+                    var payload = {
+
+                        name:
+                            name.value.trim(),
+
+
+                        email:
+                            emailValue,
+
+
+                        company:
+                            company
+                                ? company.value.trim()
+                                : "",
+
+
+                        role:
+                            role
+                                ? role.value.trim()
+                                : "",
+
+
+                        phone:
+                            phone
+                                ? phone.value.trim()
+                                : "",
+
+
+                        /*
+                         * Honeypot field.
+                         *
+                         * Real users leave this empty.
+                         */
+
+                        website:
+                            website
+                                ? website.value.trim()
+                                : "",
+
+
+                        /*
+                         * Used by the API to reject
+                         * unrealistically fast submissions.
+                         */
+
+                        startedAt:
+                            formStartedAt
+                                ? Number(
+                                    formStartedAt.value
+                                )
+                                : 0,
+
+
+                        source:
+                            "contact page",
+
+
+                        page:
+                            document.title,
+
+
+                        url:
+                            window.location.href,
+                    };
+
+
+                    /* ======================================================
+                       LOADING STATE
+                       ====================================================== */
+
+                    if (submitButton) {
+
+                        submitButton.disabled =
+                            true;
+                    }
+
+
+                    if (submitText) {
+
+                        submitText.textContent =
+                            "Sending...";
+                    }
+
+
+                    /* ======================================================
+                       API REQUEST
+                       ====================================================== */
+
+                    try {
+
+                        var response =
+                            await fetch(
+                                ENDPOINT,
+
+                                {
+                                    method:
+                                        "POST",
+
+
+                                    headers: {
+
+                                        "Content-Type":
+                                            "application/json",
+                                    },
+
+
+                                    body:
+                                        JSON.stringify(
+                                            payload
+                                        ),
+                                }
+                            );
+
+
+                        var result;
+
+
+                        try {
+
+                            result =
+                                await response.json();
+
+                        } catch (
+                            parseError
+                        ) {
+
+                            console.error(
+                                "Unable to parse contact API response:",
+                                parseError
+                            );
+
+
+                            throw new Error(
+                                "The server returned an invalid response."
+                            );
+                        }
+
+
+                        /* ==================================================
+                           API ERROR
+                           ================================================== */
+
+                        if (
+                            !response.ok ||
+                            !result.success
+                        ) {
+
+                            throw new Error(
+
+                                result.message ||
+
+                                "Unable to send your details."
+                            );
+                        }
+
+
+                        /* ==================================================
+                           SUCCESS
+                           ================================================== */
+
+                        formWrap.hidden =
+                            true;
+
+
+                        doneWrap.hidden =
+                            false;
+
+
+                        doneWrap.setAttribute(
+                            "tabindex",
+                            "-1"
+                        );
+
+
+                        doneWrap.focus();
+
+
+                        /*
+                         * Clear entered information
+                         * after successful submission.
+                         */
+
+                        form.reset();
+
+
+                    } catch (
+                        error
+                    ) {
+
+                        console.error(
+                            "Contact form failed:",
+                            error
+                        );
+
+
+                        if (submitError) {
+
+                            submitError.textContent =
+
+                                error instanceof Error
+
+                                    ? error.message
+
+                                    : "Unable to send your details. Please try again.";
+                        }
+
+
+                        /*
+                         * Restart minimum-fill timer
+                         * after a failed request.
+                         */
+
+                        if (
+                            formStartedAt
+                        ) {
+
+                            formStartedAt.value =
+                                String(
+                                    Date.now()
+                                );
+                        }
+
+                    } finally {
+
+                        /* ==================================================
+                           RESTORE BUTTON
+                           ================================================== */
+
+                        if (submitButton) {
+
+                            submitButton.disabled =
+                                false;
+                        }
+
+
+                        if (submitText) {
+
+                            submitText.textContent =
+                                "Send my details";
+                        }
+                    }
+                }
+            );
+
+        })();
+    </script>
+</main>
+</Layout>
