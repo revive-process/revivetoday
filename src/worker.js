@@ -10,9 +10,10 @@
  *      and a .html suffix is dropped (/platform.html -> /platform), matching
  *      `trailingSlash: "never"` and `build.format: "file"` in astro.config.mjs.
  *   3. Retired pages 301 to their replacements (RETIRED_PATHS).
- *   4. /videos/* and ranged requests are served straight from the asset store
- *      so byte-range requests get 206 responses (needed for video seeking
- *      and iOS playback).
+ *   4. /videos/* and ranged requests are fetched from the asset store and the
+ *      Worker slices them into 206 responses itself (needed for video seeking
+ *      and iOS playback): neither the store nor the edge honours Range for
+ *      these assets.
  *
  * http -> https is left to Cloudflare's zone setting "Always Use HTTPS"
  * (TLS terminates at the edge before the Worker runs); the HSTS header below
